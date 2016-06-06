@@ -1,0 +1,14 @@
+<form name="recover" ng-submit="recover.$valid && session.recoverPassword()" ng-disabled="session.loading" novalidate>
+  <div class="form-body">
+
+      <div class="form-group">
+        <label for="email">
+          Email
+        </label>
+        <input name="email" class="form-control" type="email" ng-model="session.email" ng-disabled="session.loading" required/>
+      </div>
+
+  </div>
+
+  {% include 'login/footer' %}
+</form>

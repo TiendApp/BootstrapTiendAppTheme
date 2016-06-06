@@ -1,0 +1,30 @@
+
+<div class="products-container">
+  <h5 ng-hide="products.currentResultName === '' || !products.currentResultName" ng-cloak>
+    Mostrando resultados de '{[products.currentResultName]}'
+  </h5>
+
+  <div class="inline" ng-hide="products.home" ng-cloak>
+    Ordenar por:
+    <ul ng-init="selectSort = 0">
+      <li ng-class="{select: selectSort === 1}" ng-click="selectSort = 1"><a href ng-click="products.setSort('popularity', 'desc')">Popularidad</a></li>
+      <li ng-class="{select: selectSort === 2}" ng-click="selectSort = 2"><a href ng-click="products.setSort('created_at', 'desc')">Más reciente</a></li>
+      <li ng-class="{select: selectSort === 3}" ng-click="selectSort = 3"><a href ng-click="products.setSort('price', 'asc')">Menor a mayor precio</a></li>
+      <li ng-class="{select: selectSort === 4}" ng-click="selectSort = 4"><a href ng-click="products.setSort('price', 'desc')">Mayor a menor precio</a></li>
+    </ul>
+  </div>
+
+  <div id="products">
+    <div class="row products-row" ng-repeat="productTemp in products.products() track by $index" ng-if="$index % 3 == 0">
+      <div class="col-sm-4 product-col" ng-repeat="product in [products.products()[$index], products.products()[$index + 1], products.products()[$index + 2]] track by $index">
+        <div class="product-snippet-container" ng-if="product != undefined">
+          {% include 'product' %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+ </div>
+
+<pagination id="paginator"></pagination>
+<!--  <infinite-scroll></infinite-scroll> -->

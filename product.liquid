@@ -1,0 +1,106 @@
+<span ng-controller="ProductController as product" >
+  {% include 'widgets/breadcrumbs' %}
+  <div class="product-container" ng-init="product.load({{product.id}})">  
+    
+    <div class="row">
+      <div class="product-image-container col-sm-6">
+        <div class="main-image">                
+          <img ng-src="{[product.image]}">
+        </div>
+        <div class="thumbnails">
+          <div class="thumbnail" ng-repeat="image in product.images" ng-click="product.setImage($index)">
+            <img ng-src="{[image.small_url]}">
+           </div>
+        </div>
+      </div>
+      <div class="product-description-container col-sm-6">
+        <h3 class="product-title">
+          {{product.name}}
+        </h3>
+        <p class="product-price">
+          {{product.price | chilean_currency}}
+        </p>
+        <div class="variants">
+          {% for variant in product.variants %}
+              <div class="variant">
+              <input type="radio" name="variant" value="{{variant.id}}" ng-click="product.setVariant({{variant.id}})"> <span>{{variant.options_text}}</span> </input>
+            </div>
+          {% endfor %}
+          <br/>
+        </div>
+        </ul>
+        {% if user.has_cart? %}  
+          <div class="row available-actions">        
+            <div class="col-sm-6">
+              <p class="in-stock" ng-init="product.inStock = {{product.in_stock?}}">
+                {% if product.in_stock? %}
+                  En Stock
+                {% else %}
+                  Sin Stock
+                {% endif %}
+              </p>  
+            </div>
+            <div class="col-xs-2">
+              <div class="form-group">
+                {% if product.in_stock? %}
+                  <input type="number" name="quantity" ng-model="product.quantity" value="1"/>
+                {% else %}
+                  <input type="number" name="quantity" min="0" value="0" max="0">
+                {% endif %}
+              </div>
+            </div>
+             
+
+            <div class="col-xs-4">
+              {% include 'cart_button_product' %}
+            </div>
+          
+          </div>
+        {% endif %} 
+        
+        <div class="divisor"></div>
+        <div class="row">
+          <p>
+            {{product.description}}
+          </p>
+        </div>
+        
+        <div class="row" ng-cloak>
+          <br>
+          <span class = "inline" ng-repeat="property in product.properties">
+            <ul>
+              <li class = "select">
+                {[property.property_name]}:
+              </li>
+              <li>
+                {[property.value]}
+              </li>
+            </ul>
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div id="related-products-container">
+    <span class="overlay" ng-show="products.loading()">
+      <i class="fa fa-circle-o-notch fa-spin fa-4x"></i>
+    </span>
+    <h4>
+      También podría interesarte
+    </h4>
+    <ul id="related-products">
+      <li class="product" ng-repeat="p in products.productsFactory.products" ng-if="p.id !== product.product.id" ng-cloak>
+
+        <a href="/products/{[p.slug]}">
+          <img ng-src="{[p.master.images[0].small_url]}">
+          <div class="name">
+            {[p.name]}
+          </div>
+        </a>
+      </li>
+    </ul>  
+  </div>
+</span>

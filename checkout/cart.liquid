@@ -1,0 +1,108 @@
+<style>
+  #cart table#mini-cart-table tr{
+      border-bottom: solid {{"shopping_cart_separator_size" | customizable : customization.shopping_cart_separator_size, preview}}px {{"shopping_cart_accent_color" | customizable : customization.shopping_cart_accent_color, preview}};
+  }
+  #cart .header-cart-icon{
+    color: {{"shopping_cart_accent_color" | customizable : customization.shopping_cart_accent_color, preview}};
+  }
+</style>
+{{ 'css/progress-wizard.min.css' | asset_url | stylesheet_tag }}
+<div id="cart" ng-cloak>
+  <div class="row">
+    <ul class="progress-indicator">
+      
+        <li class="current"> <span class="bubble"></span>Confirmar Carro</li>
+      
+      
+        <li class="next"> <span class="bubble"></span> Información de Envío</li>
+      
+      
+        <li class="next"> <span class="bubble"></span>Métodos de Envío</li>
+      
+      
+        <li class="next"> <span class="bubble"></span>Medios de Pago</li>
+      
+      <li class="next"> <span class="bubble"></span> Completado </li>
+    </ul>
+  </div>
+  <h3 >
+    <span class="glyphicon glyphicon-shopping-cart header-cart-icon"> </span>
+    Mi Carro
+  </h3>
+  <hr>
+  <table id="mini-cart-table">
+    <thead>
+      <tr ng-hide="cart.noItems()">
+        <th></th>
+        <th>Item</th>    
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th></th>
+        <th>Total</th>
+        <th></th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-show="cart.noItems()">
+        <td></td>
+        <td colspan="5">No hay productos en el carro</td>
+      </tr>
+
+      <tr ng-repeat="item in cart.itemsInCart" ng-class-odd="'odd'" ng-class-even="'even'" ng-hide="cart.noItems()">
+        <td class="picture">
+          <img ng-src="{[item.variant.images[0].small_url]}"/>  
+        </td>
+        <td class="name">
+          <h5>
+            <a href="/products/{[item.variant.slug]}">
+              {[item.variant.name]}
+            </a>
+          </h5>
+          <p>
+            {[item.variant.description | cut:true:200:' ...']}
+          </p>
+        </td>   
+        <td class="price">
+          {[item.variant.price  | currency : '$' : 0 | comma_to_dot]}
+        </td>   
+        <td class="quantity">
+            <input type="number" class="form-control" ng-model="item.new_quantity" ng-init="item.new_quantity = item.quantity"/>
+          </form>
+        </td>
+        <td class="refresh">
+          <a href="#" ng-click="cart.updateCartWithValidation(item.id, item.variant.name, item.variant.id, item.new_quantity, item.quantity)" ng-show="item.new_quantity != item.quantity" ><i class= "glyphicon glyphicon-refresh" ng-class="{'fa-spin': cart.isUpdatingElement(item.id)}" ></i></a>          
+        </td>
+        <td class="subtotal">
+          {[item.total  | currency : '$' : 0 | comma_to_dot]}
+        </td>
+        <td>                
+          <a href ng-click="cart.removeFromCart(item.id, item.variant.name)"><i class= "glyphicon glyphicon-remove-sign"></i></a>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <div class="row" ng-hide="cart.noItems()">
+    
+    <div class="col-xs-5 pull-right text-right cart-total" >
+      <span>
+        Total: 
+      </span>
+      <h4> 
+        {[cart.total  | currency : '$' : 0 | comma_to_dot]}
+      </h4>
+    </div>
+  </div>
+  <div class="row" ng-hide="cart.noItems()">
+    <div class="col-xs-5 pull-right text-right">
+      <a href="/checkout">
+        <div class="btn btn-cart">
+          <span>Realizar la Compra</span>
+          <span class="glyphicon glyphicon-arrow-right"></span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>

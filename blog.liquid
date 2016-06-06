@@ -1,0 +1,71 @@
+
+<div id="blog">
+      
+   <header class="intro-header" style="background-image: url('{{'blog_header' | customizable : customization.blog_header, preview}}')">
+        <div class="veil">  
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      <div class="site-heading">
+                          <h1>{{"blog_header_text" | customizable : customization.blog_header_text, preview}}</h1>
+                          <hr class="small">
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+    </header>
+   <!-- Main Content -->
+  <div class="container">
+      <div class="row">
+          <div class="col-md-3 col-md-push-9">
+            {% include 'blog_navigator' %}
+          </div>
+          <div class="col-md-8 col-md-pull-3">
+              {% for post in blog_posts%}
+                <div class=" post-in-index">
+                  <a href="/blog/{{post.id}}">
+                    <div class="row">
+                      <div class="col-xs-3">
+                        {%if post.has_main_image?%}
+                          {{post.main_image_small_url | image_tag : post.title}}
+                        {%endif%}
+                      </div>
+                      <div class="col-xs-9">
+                        <div class="post-preview">
+                          <h2 class="post-title">
+                              {{post.title_truncated}}
+                          </h2>
+                          <h3 class="post-subtitle">
+                              {{post.subtitle_truncated}}
+                          </h3>
+                          <p class="post-meta">{{post.printed_date}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <hr>
+              {%endfor%}
+              <!-- Pager -->
+              <ul class="pager">
+                    
+                  {% unless is_first_page %}
+                    <li class="previous">
+                      <a href="/blog?page={{previous_page}}"><span class="glyphicon glyphicon-arrow-left"></span> Publicaciones Recientes </a>
+                  {% endunless %}
+
+                  {% if is_last_page %}
+                    <li class="next disabled">
+                  {% else %}
+                    <li class="next">
+                  {% endif %}
+                      <a href="/blog?page={{next_page}}">Publicaciones Antiguas <span class="glyphicon glyphicon-arrow-right"></span></a>
+
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+</div>

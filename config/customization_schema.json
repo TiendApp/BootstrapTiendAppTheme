@@ -1,0 +1,662 @@
+{
+  "meta": {
+    "template_name": "Test Template",
+    "description": "A sample description.",
+    "version": "0.1"
+  },
+  "customization" : [
+    {
+      "settings_group": 
+      {
+        "name": "Colores",
+        "icon": "paint-brush",
+        "settings": 
+        [
+          {
+            "type": "header",
+            "content": "Colores generales"
+          },
+          {
+            "type": "color",
+            "id": "background_color",
+            "label": "Color del fondo",
+            "default": "#ffffff",
+            "info": "Color que tendrá el fondo de tu tienda en todas sus vistas."
+          },
+          {
+            "type": "color",
+            "id": "primary_color",
+            "label": "Color primario",
+            "default": "#4E59AB",
+            "info": "Color que se usará en botones y áreas para destacar."
+          },
+          {
+            "type": "color",
+            "id": "primary_hover_color",
+            "label": "Color primario mouse sobre",
+            "default": "#636BAB",
+            "info": "Color que se usará en botones y áreas para destacar al poner el mouse encima."
+          },
+          {
+            "type": "color",
+            "id": "primary_contrast_color",
+            "label": "Color texto sobre primario",
+            "default": "#f0f0f0",
+            "info": "Color que tendrán los textos escritos sobre el color primario."
+          },
+          {
+            "type": "color",
+            "id": "primary_hover_contrast_color",
+            "label": "Color texto sobre primario mouse sobre",
+            "default": "#dedede",
+            "info": "Color que tendrán los textos escritos sobre el color primario al poner el mouse encima."
+
+          },
+          {
+            "type": "color",
+            "id": "secondary_color",
+            "label": "Color secundario",
+            "default": "#BD79B1",
+            "info": "Color que se usará en botones y áreas para destacar."
+          },
+          {
+            "type": "color",
+            "id": "secondary_hover_color",
+            "label": "Color secundario mouse sobre",
+            "default": "#A26898",
+            "info": "Color que se usará en botones y áreas para destacar al poner el mouse encima."
+          },
+          {
+            "type": "color",
+            "id": "secondary_contrast_color",
+            "label": "Color texto sobre secundario",
+            "default": "#f0f0f0",
+            "info": "Color que tendrán los textos escritos sobre el color secundario."
+          },
+          {
+            "type": "color",
+            "id": "secondary_hover_contrast_color",
+            "label": "Color texto sobre secundario mouse sobre",
+            "default": "#dedede",
+            "info": "Color que tendrán los textos escritos sobre el color secundario al poner el mouse encima."
+
+          },
+          {
+            "type": "color",
+            "id": "paragraph_color",
+            "label": "Color de los párrafos",
+            "default": "#333333",
+            "info": "Color que tendrán los párrafos de tu tienda."
+          },
+          {
+            "type": "header",
+            "content": "Links y Botones"
+          },
+          {
+            "type": "color",
+            "id": "link_color",
+            "label": "Color de los links",
+            "default": "#4E8CC1",
+            "info": "Color que tendrán los vínculos de tu tienda."
+          },
+          {
+            "type": "color",
+            "id": "link_color_hover",
+            "label": "Color de los links mouse sobre",
+            "default": "#103452",
+            "info": "Color que tendrán los vínculos de tu tienda."
+          },
+          {
+            "type": "checkbox",
+            "id": "link_color_transition",
+            "label": "Transición de color suave mouse sobre",
+            "value_when_checked": "color",
+            "value_when_unchecked": "filter",
+            "default": "filter",
+            "info": "Transicionar de forma animada el color del link al posicionar el mouse encima."
+          },
+          {
+            "type": "checkbox",
+            "id": "link_background_color_transition",
+            "label": "Transición de color suave de los fondos mouse sobre",
+            "value_when_checked": "background-color",
+            "value_when_unchecked": "filter",
+            "default": "filter",
+            "info": "Transicionar de forma animada el color de los fondos (por ejemplo, botones) del link al posicionar el mouse encima."
+          }
+        ]
+      }
+    },
+    {
+      "settings_group": 
+      {
+        "name": "Generales",
+        "icon": "map-o",
+        "settings": 
+        [
+          {
+            "type": "font",
+            "id": "main_font",
+            "label": "Fuente principal",
+            "default": "Roboto",
+            "info": "Tipografía que se utilizará por defecto en la página."
+          },
+          {
+            "type": "font",
+            "id": "header_font",
+            "label": "Fuente del encabezado",
+            "default": "Open Sans",
+            "info": "Tipografía para utilizarse en los encabezados de la página."
+          },
+          {
+            "type": "image",
+            "id": "logo_navbar",
+            "label": "Logo",
+            "default": "logo_navbar.png",
+            "info": "Logo que se mostrará en la barra de navegación. Ancho recomendado: 240px"
+          }
+        ]
+      }
+    },
+    {
+      "settings_group": 
+      {
+        "name": "Carro de Compras",
+        "icon": "shopping-cart",
+        "settings": 
+        [
+          {
+            "type": "header",
+            "content": "Generales"
+          },
+          {
+            "type": "color",
+            "id": "shopping_cart_add_color",
+            "label": "Color botón agregar al carro",
+            "default": "#EC4646",
+            "info": "Color de todos los botones de agregar al carro."
+          },
+          {
+            "type": "color",
+            "id": "shopping_cart_add_color_hover",
+            "label": "Color botón agregar al carro mouse sobre",
+            "default": "#AA1725",
+            "info": "Color de todos los botones de agregar al carro al posicionar el mouse encima."
+          },
+          {
+            "type": "color",
+            "id": "shopping_cart_add_text_color",
+            "label": "Color texto agregar al carro",
+            "default": "#ffffff",
+            "info": "Color del texto de todos los botones de agregar al carro."
+          },
+          {
+            "type": "color",
+            "id": "shopping_cart_add_text_color_hover",
+            "label": "Color texto agregar al carro mouse sobre",
+            "default": "#ffffff",
+            "info": "Color del texto de todos los botones de agregar al carro al posicionar el mouse encima."
+          },
+          {
+            "type": "header",
+            "content": "Pestaña del Carro"
+          },
+          {
+            "type": "color",
+            "id": "shopping_cart_accent_color",
+            "label": "Color principal",
+            "default": "#CB8D31",
+            "info": "Color de acentuación del carrito."
+          },
+          {
+            "type": "integer",
+            "id": "shopping_cart_separator_size",
+            "label": "Tamaño separador",
+            "default": "1",
+            "info": "Tamaño del separador de los items del carrito."
+          }
+        ]
+      }
+    },
+    {
+      "settings_group": 
+      {
+        "name": "Productos",
+        "icon": "futbol-o",
+        "settings": 
+        [
+          {
+            "type": "header",
+            "content": "Encabezado de Productos"
+          },
+          {
+            "type": "float",
+            "id": "products_header_size",
+            "label": "Tamaño encabezado",
+            "default": 14.0,
+            "min": 0.0,
+            "max": 20.0,
+            "step": 0.5,
+            "info": "Tamaño del encabezado de la lista de productos."
+          },
+          {
+            "type": "color",
+            "id": "products_header_color",
+            "label": "Color del encabezado",
+            "default": "#7F3923",
+            "info": "Color del encabezado de la lista de productos."
+          },
+          {
+            "type": "integer",
+            "id": "products_divider_size",
+            "label": "Tamaño divisor",
+            "default": 1,
+            "min": 0,
+            "max": 20,
+            "info": "Tamaño de la línea divisora de los productos."
+          },
+          {
+            "type": "color",
+            "id": "products_divider_color",
+            "label": "Color divisor",
+            "default": "#333333",
+            "info": "Color de la línea divisora de los productos."
+          },
+          {
+            "type": "color",
+            "id": "products_paginator_active_color",
+            "label": "Color paginador",
+            "default": "#0085A1",
+            "info": "Color de la página activa en un momento en el paginador de productos."
+          }
+        ]
+      }
+    },
+    {
+      "settings_group":
+      {
+        "name": "Encabezado/Header",
+        "icon": "newspaper-o",
+        "settings":
+        [
+          {
+            "type": "text",
+            "id": "header_title_1",
+            "label": "Título 1",
+            "default": "Encabezado de ejemplo 1",
+            "info": "Título para el encabezado, posicionado sobre el slideshow de fotos."
+          },
+          {
+            "type": "text",
+            "id": "header_title_2",
+            "label": "Título 2",
+            "default": "Encabezado de ejemplo 2",
+            "info": "Título para el encabezado, posicionado sobre el slideshow de fotos."
+          },
+          {
+            "type": "text",
+            "id": "header_title_3",
+            "label": "Título 3",
+            "default": "Encabezado de ejemplo 3",
+            "info": "Título para el encabezado, posicionado sobre el slideshow de fotos."
+          },
+          {
+            "type": "select",
+            "id": "header_title_align",
+            "label": "Alineación título",
+            "default": "center",
+            "options": [
+              {
+                "value": "left",
+                "label": "Izquierda"
+              },
+              {
+                "value": "center",
+                "label": "Medio"
+              },
+              {
+                "value": "right",
+                "label": "Derecha"
+              }
+            ]
+          },
+          {
+            "type": "image",
+            "id": "header_image_1",
+            "label": "Imagen 1",
+            "default": "header_image_1.png",
+            "info": "Imagen para primera vista del slideshow de fotos."
+          },
+          {
+            "type": "image",
+            "id": "header_image_2",
+            "label": "Imagen 2",
+            "default": "header_image_2.png",
+            "info": "Imagen para primera vista del slideshow de fotos."
+          },
+          {
+            "type": "image",
+            "id": "header_image_3",
+            "label": "Imagen 3",
+            "default": "header_image_3.png",
+            "info": "Imagen para primera vista del slideshow de fotos."
+          },
+          {
+            "type": "header",
+            "content": "Invitación a Suscribirse"
+          },
+          {
+            "type": "text",
+            "id": "home_subscribe_title",
+            "label": "Título",
+            "default": "Suscríbete",
+            "info": "Título del texto que invita a los usuarios a inscribirse al mailing de la tienda."
+          },
+          {
+            "type": "text",
+            "id": "home_subscribe_text",
+            "label": "Texto",
+            "default": "Recibe noticias sobre nuevos productos y promociones",
+            "info": "Contenido del texto que invita a los usuarios a inscribirse al mailing de la tienda."
+          },
+          {
+            "type": "color",
+            "id": "home_subscribe_background_color",
+            "label": "Color del fondo",
+            "default": "#606060",
+            "info": "Color que tendrá el fondo de la sección de suscripción."
+          },
+          {
+            "type": "color",
+            "id": "home_subscribe_text_color",
+            "label": "Color del texto",
+            "default": "#f0f0f0",
+            "info": "Color que tendrá el texto de la sección de suscripción."
+          }
+      
+        ]
+      
+      }
+    },
+    {
+      "settings_group": 
+      {
+        "name": "Blog",
+        "icon": "rss",
+        "id": "blog",
+        "settings": 
+        [
+          {
+            "type": "header",
+            "content": "Listado de publicaciones"
+          },
+          {
+            "type": "image",
+            "id": "blog_header",
+            "label": "Imagen encabezado",
+            "default": "blog_header.jpg",
+            "info": "Imagen para el encabezado del blog."
+          },
+          {
+            "type": "text",
+            "id": "blog_header_text",
+            "label": "Texto del encabezado",
+            "default": "Nuestro Blog",
+            "info": "Texto del encabezado del Blog."
+          },
+          {
+            "type": "color",
+            "id": "blog_main_link_color",
+            "label": "Color texto links",
+            "default": "#404040",
+            "info": "Color que tendrá el texto de los títulos de la lista de publicaciones."
+          },
+          {
+            "type": "color",
+            "id": "blog_main_link_hover_button",
+            "label": "Color texto links mouse sobre",
+            "default": "#0085a1",
+            "info": "Color que tendrá el texto de los títulos de la lista de publicaciones cuando el mouse se encuentra encima."
+          },
+          {
+            "type": "header",
+            "content": "Generales"
+          },
+          {
+            "type": "font",
+            "id": "blog_header_font",
+            "label": "Fuente títulos",
+            "default": "Open Sans",
+            "info": "Tipografía que se utilizará en los títulos del blog."
+          },
+          {
+            "type": "font",
+            "id": "blog_subtitle_font",
+            "label": "Fuente subtítulos",
+            "default": "Open Sans",
+            "info": "Tipografía que se utilizará en los subtítulos del blog."
+          },
+          {
+            "type": "font",
+            "id": "blog_paragraph_font",
+            "label": "Fuente párrafos",
+            "default": "Lora",
+            "info": "Tipografía que se utilizará en los párrafos del blog."
+          },
+          {
+            "type": "color",
+            "id": "blog_text_color",
+            "label": "Color del texto",
+            "default": "#404040",
+            "info": "Color que tendrá el texto de los párrafos del blog."
+          },
+          {
+            "type": "header",
+            "content": "Botón Principal"
+          },
+          {
+            "type": "color",
+            "id": "blog_button_background_color",
+            "label": "Color del botón",
+            "default": "#ffffff",
+            "info": "Color que tendrá el botón principal del blog."
+          },
+          {
+            "type": "color",
+            "id": "blog_button_hover_background_color",
+            "label": "Color mouse sobre",
+            "default": "#0085a1",
+            "info": "Color que tendrá el botón principal cuando el mouse se encuentra encima."
+          },
+          {
+            "type": "color",
+            "id": "blog_button_color",
+            "label": "Color texto botón",
+            "default": "#404040",
+            "info": "Color que tendrá el texto botón principal del blog."
+          },
+          {
+            "type": "color",
+            "id": "blog_button_hover_color",
+            "label": "Color texto botón mouse sobre",
+            "default": "#ffffff",
+            "info": "Color que tendrá el texto del botón principal cuando el mouse se encuentra encima."
+          }
+        ]
+      }
+    },
+    {
+      "settings_group": 
+      {
+        "name": "Mis Páginas Adicionales",
+        "icon": "file-o",
+        "id": "static_pages",
+        "settings": 
+        [
+          {
+            "type": "header",
+            "content": "Títulos"
+          },
+          {
+            "type": "color",
+            "id": "static_pages_header_color",
+            "label": "Color de los encabezados",
+            "default": "#404040",
+            "info": "Color que tendrán los encabezados de tus páginas adicionales."
+          },
+          {
+            "type": "font",
+            "id": "static_pages_header_font",
+            "label": "Fuente de los encabezados",
+            "default": "Open Sans",
+            "info": "Tipografía que se aplicará sobre los encabezados de tus páginas adicionales."
+          },
+          {
+            "type": "header",
+            "content": "Párrafos"
+          },
+          {
+            "type": "color",
+            "id": "static_pages_paragraph_color",
+            "label": "Color de los párrafos",
+            "default": "#404040",
+            "info": "Color que tendrán los párrafos de tus páginas adicionales."
+          },
+          {
+            "type": "font",
+            "id": "static_pages_paragraph_font",
+            "label": "Fuente de los párrafos",
+            "default": "Lora",
+            "info": "Tipografía que se aplicará sobre los párrafos de tus páginas adicionales."
+          },
+          {
+            "type": "integer",
+            "id": "static_pages_paragraph_size",
+            "label": "Tamaño de los párrafos",
+            "default": "12",
+            "info": "Tamaño de la fuente de los párrafos de tus páginas adicionales."
+          }
+        ]
+      }
+    },
+    {
+      "settings_group": 
+      {
+        "name": "Pie de Página",
+        "icon": "file-o",
+        "id": "static_pages",
+        "settings": 
+        [
+          {
+            "type": "header",
+            "content": "Textos"
+          },
+          {
+            "type": "text",
+            "id": "footer_header_text",
+            "label": "Texto principal",
+            "default": "Contáctanos",
+            "info": "Texto principal del pie de página."
+          },
+          {
+            "type": "text",
+            "id": "footer_phone_number",
+            "label": "Número de teléfono",
+            "default": "(56-2) 1234 5678",
+            "info": "Número de teléfono que se mostrará en el pie de página."
+          },
+          {
+            "type": "checkbox",
+            "id": "footer_phone_number_show",
+            "label": "Mostrar número de teléfono",
+            "value_when_checked": "block",
+            "value_when_unchecked": "none",
+            "default": "block",
+            "info": "Elige si mostrar o no el número de teléfono en el pie de página."
+          },
+          {
+            "type": "text",
+            "id": "footer_email",
+            "label": "Email",
+            "default": "contacto@tiendapp.cl",
+            "info": "Correo electrónico de contacto que se mostrará en el pie de página."
+          },
+          {
+            "type": "checkbox",
+            "id": "footer_email_show",
+            "label": "Mostrar email",
+            "value_when_checked": "block",
+            "value_when_unchecked": "none",
+            "default": "block",
+            "info": "Elige si mostrar o no el correo electrónico en el pie de página."
+          },
+          {
+            "type": "header",
+            "content": "Colores"
+          },
+          {
+            "type": "color",
+            "id": "footer_background_color",
+            "label": "Color del fondo",
+            "default": "#A5ADBA",
+            "info": "Color que tendrá el fondo del pie de página de tu tienda."
+          },
+          {
+            "type": "color",
+            "id": "footer_text_color",
+            "label": "Color del texto",
+            "default": "#ffffff",
+            "info": "Color que tendrá el texto del pie de página de tu tienda."
+          },
+          {
+            "type": "color",
+            "id": "footer_link_color",
+            "label": "Color de los links",
+            "default": "#ffffff",
+            "info": "Color que tendrá el texto del pie de página de tu tienda."
+          },
+          {
+            "type": "color",
+            "id": "footer_link_color_hover",
+            "label": "Color de los links mouse sobre",
+            "default": "#DAEBFF",
+            "info": "Color que tendrán los links del pie de página de tu tienda al poner el mouse encima."
+          },
+          {
+            "type": "header",
+            "content": "Redes Sociales"
+          },
+          {
+            "type": "text",
+            "id": "footer_link_facebook",
+            "label": "URL Facebook",
+            "default": "https://www.facebook.com/tiendappchile",
+            "info": "Dirección de tu página en Facebook."
+          },
+          {
+            "type": "text",
+            "id": "footer_link_twitter",
+            "label": "URL Twitter",
+            "default": "https://twitter.com/TiendAppChile",
+            "info": "Dirección de tu página en Twitter."
+          },
+          {
+            "type": "text",
+            "id": "footer_link_instagram",
+            "label": "URL Instagram",
+            "default": "https://www.instagram.com/tiendappchile",
+            "info": "Dirección de tu página en Instagram."
+          },
+          {
+            "type": "text",
+            "id": "footer_link_pinterest",
+            "label": "URL Pinterest",
+            "default": "https://www.pinterest.com/tiendapp",
+            "info": "Dirección de tu página en Pinterest."
+          }
+
+        ]
+      }
+    }
+  ]
+}

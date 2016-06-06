@@ -1,0 +1,9 @@
+{% if preview %}
+  {% for font in available_fonts %}
+    {{font | generic_font_tag}}
+  {% endfor %}
+{% else %}
+  {% for item in customization %}
+    {{ item[1] | generic_font_tag }}
+  {% endfor %}
+{% endif %}

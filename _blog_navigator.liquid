@@ -1,0 +1,13 @@
+<div id="blog-navigator">
+  <h4>
+    Publicaciones Recientes
+  </h4>
+  {% for post in recent_posts %}
+    <div class="recent-post">
+      <a href="/blog/{{post.id}}">
+        {{post.title_truncated}}
+      </a>
+    </div>
+  {% endfor %}
+  <hr>
+</div>

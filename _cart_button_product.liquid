@@ -1,0 +1,4 @@
+<div class="btn btn-cart" ng-click="products.hasStock(product) && cart.addToCart(product.master.id, product.name, 1)" ng-disabled="!products.hasStock(product)" ng-cloak>           
+  <span ng-class="{'glyphicon-shopping-cart': cart.isAddingElement(product.master.id) == false, 'glyphicon-refresh fa-spin':cart.isAddingElement(product.master.id) == true }" class="glyphicon"></span>
+  <span>Agregar al Carro</span>
+</div>

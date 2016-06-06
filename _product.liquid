@@ -1,0 +1,20 @@
+<a class="product-image-container" href="/products/{[product.slug]}">
+  <div class="product-snippet-image">
+    <img ng-src="{[product.master.images[0].product_url]}"/>
+  </div>
+  <div class="product-snippet-caption">
+  </div>
+</a>
+
+<div class="row product-snippet-text">
+  <div class="{% if user.has_cart? %} col-lg-7 col-xs-7 col-sm-12 {% else %} col-md-12 {% endif %} product-snippet-name text-center">
+    <a href="/products/{[product.slug]}">
+      {[product.name]}      
+    </a>
+  </div>
+  {% if user.has_cart? %}
+    <div class="col-lg-5 col-xs-5 col-sm-12 product-snippet-price text-center">
+      {% include 'cart' %}
+    </div>
+  {% endif %}
+</div>      

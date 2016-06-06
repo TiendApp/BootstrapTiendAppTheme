@@ -1,0 +1,10 @@
+{%  if user.has_tiendapp_footer? %}
+  <div class="tiendapp-footer">
+
+    Hecho en
+    <a href="www.tiendapp.cl">
+      {{'logo_navbar' | customizable_image : customization.logo_tiendapp, preview, 'Logo'}}
+    </a>
+
+  </div>
+{%  endif %}

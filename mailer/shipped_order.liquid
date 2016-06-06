@@ -1,0 +1,57 @@
+<style>
+  
+   .products-table tr:nth-child(even) {
+    background-color: {{"email_shipment_table_background_color_even" | customizable : customization.email_shipment_table_background_color_even, preview }};
+  }
+  .products-table tr:nth-child(even) td{
+    color:{{"email_shipment_table_text_color_even" | customizable : customization.email_shipment_table_text_color_even, preview }};
+  }
+  .products-table tr:nth-child(odd) {
+    background-color: {{"email_shipment_table_background_color_odd" | customizable : customization.email_shipment_table_background_color_odd, preview }};
+  }
+  .products-table th{
+    background-color: {{"email_shipment_table_background_color_header" | customizable : customization.email_shipment_table_background_color_header, preview }};
+  }
+  .products-table tr:nth-child(odd) td{
+    color:{{"email_shipment_table_text_color_odd" | customizable : customization.email_shipment_table_text_color_odd, preview }};
+    
+  }
+  .products-table td, .products-table tr{
+    border: solid {{"email_shipment_table_border_size" | customizable : customization.email_shipment_table_border_size, preview }}px {{"email_shipment_table_border_color" | customizable : customization.email_shipment_table_border_color, preview }};
+    padding: {{"email_shipment_table_padding" | customizable : customization.email_order_table_padding, preview }}px;
+  }
+
+  .products-table{
+    margin: 20px 0px;
+  }
+  
+  .email-content-header{
+    margin-top: 20px;
+  }
+  .products-table th{
+    text-align: center;
+    font-weight: normal;
+  }
+</style>
+<table>
+  <tr>
+    <td>
+      <p class="lede email-content-header">
+        {{"email_shipment_head_text" | customizable_with_variables : customization.email_shipment_head_text, preview, variables }}
+        
+      </p>
+      <p>
+        {{"email_shipment_before_contents" | customizable_with_variables : customization.email_shipment_before_contents, preview, variables }}
+        
+        
+      </p>
+      
+        {{ shipment_contents }}
+      <p>
+        {{"email_shipment_bottom_text" | customizable_with_variables : customization.email_shipment_bottom_text, preview, variables }}
+      
+      </p>
+    </td>
+    <td class="expander"></td>
+  </tr>
+</table>

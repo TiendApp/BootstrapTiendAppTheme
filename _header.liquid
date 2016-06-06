@@ -1,0 +1,61 @@
+<style>
+  .subscription{
+    color: {{ "home_subscribe_text_color" | customizable : customization.home_subscribe_text_color, preview }};
+    background-color: {{ "home_subscribe_background_color" | customizable : customization.home_subscribe_background_color, preview }};
+  }
+  .subscription p{
+    color: {{ "home_subscribe_text_color" | customizable : customization.home_subscribe_text_color, preview }};
+  }
+  .subscription .error{
+    color: {{ "home_subscribe_text_color" | customizable : customization.home_subscribe_text_color, preview }};
+    
+  }
+</style>
+<div class="header-container" ng-show="products.home">
+  {% include 'widgets/carousel' %}  
+</div>
+{% if user.is_logged_in? == false or preview %}
+<div class="subscription animate-fade" ng-show="products.home && {% if preview == false %}!session.userSignedIn() {% endif%}" ng-controller="SubscriptionController as subscription" ng-cloak>
+  <div class="row">
+    <div class="col-sm-6">
+      <h4>
+        {{"home_subscribe_title" | customizable : customization.home_subscribe_title, preview }}
+      </h4>
+      <p>
+        {{"home_subscribe_text" | customizable : customization.home_subscribe_text, preview }}
+        
+      </p>
+    </div>
+    <div class="col-sm-6">
+    <div class="form-submitted primary animate-fade"  ng-show='mailFormState == "submitted"' ng-cloak>    
+      <h5>
+        
+        ¡Muchas gracias!
+      </h5>
+      <p>
+        Hemos agregado tu correo a nuestros sistemas.
+      </p>
+    </div>
+      <form ng-submit='subscription.addToMailingList()' ng-hide='mailFormState == "submitted"'>
+        <div class="input-group mail-input " >
+          <input type="email" class="form-control" placeholder="Ingresa tu correo" ng-model="subscription.mailingListItem">
+          <span class="input-group-btn" ng-switch='mailFormState'>
+            <button class="btn btn-default primary disabled ng-animate-disabled" ng-switch-when='submitting'>
+              <i class="fa fa-circle-o-notch fa-spin"></i>
+              Enviando
+            </button>
+            <button class="btn btn-default primary ng-animate-disabled disabled" type="button" ng-switch-when="submitted">Enviado</button>
+            <button class="btn btn-default primary ng-animate-disabled" type="button" ng-switch-default>Enviar</button>
+          </span>
+        </div><!-- /input-group -->
+
+        <small class="error" ng-show='emailFormError == "invalid-email"' ng-cloak>
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          Por favor ingresa un correo válido
+        </small>
+      </form>
+    </div>
+  </div>
+</div>
+{%endif%}

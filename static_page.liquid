@@ -1,0 +1,28 @@
+<style>
+  #static-page h1,
+  #static-page h2,
+  #static-page h3,
+  #static-page h4,
+  #static-page h5,
+  #static-page h6 {
+    font-family: {{"static_pages_header_font" | customizable : customization.static_pages_header_font, preview}}, Helvetica, Arial, sans-serif;
+    color: {{"static_pages_header_color" | customizable : customization.static_pages_header_color, preview}};
+  }
+  #static-page p{
+    font-family: {{"static_pages_paragraph_font" | customizable : customization.static_pages_paragraph_font, preview}}, Helvetica, Arial, sans-serif;
+    color: {{"static_pages_paragraph_color" | customizable : customization.static_pages_paragraph_color, preview}};
+    font-size: {{"static_pages_paragraph_size" | customizable : customization.static_pages_paragraph_size, preview}}pt;
+  }
+  #static-page{
+    margin-top: 80px; /*Navbar Fixed*/
+  }
+</style>
+<div id="static-page">
+  <div class="row static-content">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-10">
+      {{content}}
+    </div>
+    <div class="col-xs-1"></div>
+  </div>
+</div>

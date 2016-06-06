@@ -1,0 +1,26 @@
+{% if just_completed? == 'true' %}
+  {{ 'css/progress-wizard.min.css' | asset_url | stylesheet_tag }}
+
+  <div class="row">
+    <ul class="progress-indicator">
+      
+        <li class="completed"> <span class="bubble"></span> Confirmar Carro </li>
+      
+      
+        <li class="completed"> <span class="bubble"></span> Información de Envío </li>
+      
+      
+        <li class="completed"> <span class="bubble"></span>Métodos de Envío </li>
+      
+      
+        <li class="completed"> <span class="bubble"></span>Medios de Pago</li>
+      
+      <li class="current"> <span class="bubble"></span> Completado </li>
+    </ul>
+  </div>
+{% endif %}
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+    {{content_for_order}}
+  </div>
+</div>

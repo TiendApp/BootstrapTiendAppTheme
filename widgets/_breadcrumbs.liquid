@@ -1,0 +1,32 @@
+<ol class="breadcrumb" role="navigation" aria-label="breadcrumbs" ng-show="products.productsFactory.breadcrumbs.length > 0 || product" ng-cloak>
+  <li title="Home" href="/#" ng-click="products.goHome(); search = false; products.query = ''">{{store.name}}</li>
+
+  <li ng-repeat="bread in products.productsFactory.breadcrumbs" >
+    <a href="/#categories/{[bread.id]}/{[bread.name | lowercase]}" ng-class="($last && !product) ? 'select' : ''"> 
+      {[bread.name]}
+    </a>  
+  </li>
+
+
+  <li class = "dropdown" ng-if="!product">
+    <span id="sub_categories" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <a href="#">     
+        Todo
+        <span class="caret"></span>
+      </a>
+    </span>
+    <ul class="dropdown-menu" aria-labelledby="sub_categories">
+      <li><a>Todo</a></li>
+      <li ng-repeat="breadChild in products.productsFactory.breadcrumbsChildren">
+        <a href="/#categories/{[breadChild.id]}/{[breadChild.name | lowercase]}"> 
+         {[breadChild.name]}
+        </a>  
+      </li>
+    </ul>
+  </li>
+
+  <li ng-if="product">
+    <a href class="select">{[product.name]}</a>
+  </li>
+
+</ol>

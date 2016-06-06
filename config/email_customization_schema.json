@@ -1,0 +1,394 @@
+{
+  "meta": {
+    "template_name": "Test Template",
+    "description": "A sample description.",
+    "version": "0.1"
+  },
+  "email_customization" : {
+    "shared": 
+    {
+      "label": "Compartido",
+      "setting_groups": 
+      [
+        {
+          "name": "Header",
+          "icon": "newspaper-o",
+          "settings": 
+          [ 
+            {
+              "type": "header",
+              "content": "Configuraciones para todos los correos"
+            },  
+            {
+              "type": "image",
+              "id": "email_header_logo",
+              "label": "Logo Encabezado",
+              "default": "email_header_logo.png",
+              "info": "Imagen para el logo del email."
+            },   
+            {
+              "type": "text",
+              "id": "email_header_text",
+              "label": "Texto Encabezado",
+              "default": "{{store.name}} - Un encabezado de ejemplo",
+              "info": "El texto del encabezado de los correos."
+            }, 
+            {
+              "type": "color",
+              "id": "email_header_background_color",
+              "label": "Color del Fondo",
+              "default": "#82bfc4",
+              "info": "Color que tendrá el fondo de tu encabezado."
+            },
+            {
+              "type": "color",
+              "id": "email_header_color",
+              "label": "Color del Texto",
+              "default": "#ffffff",
+              "info": "Color que tendrá el texto de tu encabezado."
+            },
+            {
+              "type": "font",
+              "id": "email_header_font",
+              "label": "Fuente Encabezado",
+              "default": "Tahoma",
+              "info": "Tipografía que se utilizará en el encabezado en los emails."
+            },
+            {
+              "type": "integer",
+              "id": "email_header_font_size",
+              "label": "Tamaño Fuente",
+              "default": 14,
+              "min": 1,
+              "max": 32,
+              "info": "Tamaño de la tipografía del encabezado."
+            }
+            
+          ]
+        },
+        {
+          "name": "General",
+          "icon": "sitemap",
+          "settings":
+          [
+            {
+              "type": "header",
+              "content": "Configuraciones para todos los correos"
+            },  
+            {
+              "type": "color",
+              "id": "email_background_color",
+              "label": "Color del fondo",
+              "default": "#ffffff",
+              "info": "Color que tendrá el fondo de los emails."
+            },
+            {
+              "type": "color",
+              "id": "email_text_color",
+              "label": "Color de la Fuente",
+              "default": "#000000",
+              "info": "Color que tendrá el texto de los emails."
+            },
+            {
+              "type": "font",
+              "id": "main_email_font",
+              "label": "Fuente principal",
+              "default": "Tahoma",
+              "info": "Tipografía que se utilizará por defecto en los emails."
+            }
+          ]
+        }
+      ]
+    },
+    
+    "confirm_order": {
+      "label": "Email de confirmación de orden",
+      "setting_groups": 
+      [
+        {
+          "name": "Textos",
+          "icon": "font",
+          "settings":
+          [
+            {
+              "type": "text",
+              "id": "email_order_head_text",
+              "label": "Texto superior",
+              "default": "{{order.username}}, a continuación se detallan los contenidos de tu compra:",
+              "info": "Texto que antedecerá el contenido del correo."
+            },
+            {
+              "type": "text",
+              "id": "email_order_please_check",
+              "label": "Texto de revisión",
+              "default": "Por favor, revisa y conserva la siguiente información de tu compra.",
+              "info": "Texto que incitará al usuario a mantener el recibo de su compra."
+            },
+            {
+              "type": "text",
+              "id": "email_order_bottom_text",
+              "label": "Texto final",
+              "default": "¡Muchas gracias por tu compra!",
+              "info": "Texto final de la orden."
+            }
+          ]
+        },
+        {
+          "name": "Tabla de compra",
+          "icon": "table",
+          "settings":
+          [
+            {
+              "type": "color",
+              "id": "email_order_table_background_color_even",
+              "label": "Color filas pares",
+              "default": "#ffffff",
+              "info": "Color de las filas pares de la tabla que contiene la orden."
+            },
+            {
+              "type": "color",
+              "id": "email_order_table_background_color_odd",
+              "label": "Color filas impares",
+              "default": "#f2f2f2",
+              "info": "Color de las filas impares de la tabla que contiene la orden."
+            },
+            {
+              "type": "color",
+              "id": "email_order_table_background_color_header",
+              "label": "Color filas encabezado",
+              "default": "#efefef",
+              "info": "Color de las filas de encabezado de la tabla que contiene la orden."
+            },
+            {
+              "type": "color",
+              "id": "email_order_table_text_color_even",
+              "label": "Color texto filas pares",
+              "default": "#000000",
+              "info": "Color del texto de las filas pares de la tabla que contiene la orden."
+            },
+            {
+              "type": "color",
+              "id": "email_order_table_text_color_odd",
+              "label": "Color texto filas impares",
+              "default": "#000000",
+              "info": "Color del texto de las filas impares de la tabla que contiene la orden."
+            },
+            {
+              "type": "color",
+              "id": "email_order_table_border_color",
+              "label": "Color del borde",
+              "default": "#ccc",
+              "info": "Color del borde de la tabla que contiene la orden."
+            },
+            {
+              "type": "integer",
+              "id": "email_order_table_border_size",
+              "label": "Tamaño del borde",
+              "default": "1",
+              "info": "Tamaño del borde de la tabla que contiene la orden."
+            },
+            {
+              "type": "integer",
+              "id": "email_order_table_padding",
+              "label": "Espaciado interno",
+              "default": "5",
+              "info": "Tamaño del espaciado de la tabla que contiene la orden."
+            }
+          ]
+        }
+         
+      ]
+    },
+    "cancel_order": {
+      "label": "Email de cancelación de orden",
+      "setting_groups": 
+      [
+        {
+          "name": "Textos",
+          "icon": "font",
+          "settings":
+          [
+            {
+              "type": "text",
+              "id": "email_cancel_order_head_text",
+              "label": "Texto superior",
+              "default": "{{order.username}}, tu pedido ha sido cancelado.",
+              "info": "Texto que antedecerá el contenido del correo."
+            },
+            {
+              "type": "text",
+              "id": "email_cancel_order_please_check",
+              "label": "Texto de revisión",
+              "default": "Por favor conserva esta información de cancelación para tus registros. Resumen de pedido (cancelado):",
+              "info": "Texto que incitará al usuario a mantener el recibo de su cancelación."
+            },
+            {
+              "type": "text",
+              "id": "email_cancel_order_bottom_text",
+              "label": "Texto final",
+              "default": "Se despide atentamente, {{store.name}}",
+              "info": "Texto final de la orden."
+            }
+          ]
+        },
+        {
+          "name": "Tabla de compra",
+          "icon": "table",
+          "settings":
+          [
+            {
+              "type": "color",
+              "id": "email_cancel_order_table_background_color_even",
+              "label": "Color filas pares",
+              "default": "#ffffff",
+              "info": "Color de las filas pares de la tabla que contiene la orden."
+            },
+            {
+              "type": "color",
+              "id": "email_cancel_order_table_background_color_odd",
+              "label": "Color filas impares",
+              "default": "#f2f2f2",
+              "info": "Color de las filas impares de la tabla que contiene la orden."
+            },
+            {
+              "type": "color",
+              "id": "email_cancel_order_table_text_color_even",
+              "label": "Color texto filas pares",
+              "default": "#000000",
+              "info": "Color del texto de las filas pares de la tabla que contiene la orden."
+            },
+            {
+              "type": "color",
+              "id": "email_cancel_order_table_text_color_odd",
+              "label": "Color texto filas impares",
+              "default": "#000000",
+              "info": "Color del texto de las filas impares de la tabla que contiene la orden."
+            },
+            {
+              "type": "color",
+              "id": "email_cancel_order_table_border_color",
+              "label": "Color del borde",
+              "default": "#ccc",
+              "info": "Color del borde de la tabla que contiene la orden."
+            },
+            {
+              "type": "integer",
+              "id": "email_cancel_order_table_border_size",
+              "label": "Tamaño del borde",
+              "default": "1",
+              "info": "Tamaño del borde de la tabla que contiene la orden."
+            },
+            {
+              "type": "integer",
+              "id": "email_cancel_order_table_padding",
+              "label": "Espaciado interno",
+              "default": "5",
+              "info": "Tamaño del espaciado de la tabla que contiene la orden."
+            }
+          ]
+        }
+         
+      ]
+    },
+    "shipped_order": {
+      "label": "Email de confirmación de envío",
+      "setting_groups": 
+      [
+        {
+          "name": "Textos",
+          "icon": "font",
+          "settings":
+          [
+            {
+              "type": "text",
+              "id": "email_shipment_head_text",
+              "label": "Texto superior",
+              "default": "Estimado {{shipment.username}}, su pedido ha sido enviado.",
+              "info": "Texto que antedecerá el contenido del correo."
+            },
+            {
+              "type": "text",
+              "id": "email_shipment_before_contents",
+              "label": "Encabezado de contenidos",
+              "default": "Resumen del envío:",
+              "info": "Texto que antecederá el contenido del envío."
+            },
+            {
+              "type": "text",
+              "id": "email_shipment_bottom_text",
+              "label": "Texto final",
+              "default": "¡Muchas gracias por tu compra!",
+              "info": "Texto final del envío."
+            }
+          ]
+        },
+        {
+          "name": "Tabla de productos",
+          "icon": "table",
+          "settings":
+          [
+            {
+              "type": "color",
+              "id": "email_shipment_table_background_color_even",
+              "label": "Color filas pares",
+              "default": "#ffffff",
+              "info": "Color de las filas pares de la tabla que contiene el envío."
+            },
+            {
+              "type": "color",
+              "id": "email_shipment_table_background_color_odd",
+              "label": "Color filas impares",
+              "default": "#f2f2f2",
+              "info": "Color de las filas impares de la tabla que contiene el envío."
+            },
+            {
+              "type": "color",
+              "id": "email_shipment_table_background_color_header",
+              "label": "Color filas encabezado",
+              "default": "#efefef",
+              "info": "Color de las filas de encabezado de la tabla que contiene el envío."
+            },
+            {
+              "type": "color",
+              "id": "email_shipment_table_text_color_even",
+              "label": "Color texto filas pares",
+              "default": "#000000",
+              "info": "Color del texto de las filas pares de la tabla que contiene el envío."
+            },
+            {
+              "type": "color",
+              "id": "email_shipment_table_text_color_odd",
+              "label": "Color texto filas impares",
+              "default": "#000000",
+              "info": "Color del texto de las filas impares de la tabla que contiene el envío."
+            },
+            {
+              "type": "color",
+              "id": "email_shipment_table_border_color",
+              "label": "Color del borde",
+              "default": "#ccc",
+              "info": "Color del borde de la tabla que contiene el envío."
+            },
+            {
+              "type": "integer",
+              "id": "email_shipment_table_border_size",
+              "label": "Tamaño del borde",
+              "default": "1",
+              "info": "Tamaño del borde de la tabla que contiene el envío."
+            },
+            {
+              "type": "integer",
+              "id": "email_shipment_table_padding",
+              "label": "Espaciado interno",
+              "default": "5",
+              "info": "Tamaño del espaciado de la tabla que contiene el envío."
+            }
+          ]
+        }
+        
+         
+      ]
+    }
+  }
+  
+}

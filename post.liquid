@@ -1,0 +1,42 @@
+
+<div id="blog">
+  {%if post.has_main_image?%}
+    <header class="intro-header" style="background-image: url('{{post.main_image_large_url}}')">
+  {%else%}
+    <header class="intro-header" style="background-color: #808080;">
+  {%endif%}
+    <div class="veil">  
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  <div class="post-heading">
+                      <h1>{{post.title}}</h1>
+                      <h2 class="subheading">{{post.subtitle}}</h2>
+                      <span class="meta">{{post.printed_date}}</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </header>
+   <article>
+     <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                {{content}}
+            </div>
+        </div>
+    </div>
+  </article>
+  <hr>
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <ul class="pager">
+        <li class="next">
+          <a href="/blog">Volver al Blog <span class="glyphicon glyphicon-arrow-left"></span></a>
+        </li>
+      </ul>    
+    </div>
+  </div>
+  
+</div>

@@ -1,0 +1,67 @@
+<style>
+  .order_table tr:nth-child(even) {
+    background-color: {{"email_order_table_background_color_even" | customizable : customization.email_order_table_background_color_even, preview }};
+  }
+  .order_table tr:nth-child(even) td{
+    color:{{"email_order_table_text_color_even" | customizable : customization.email_order_table_text_color_even, preview }};
+  }
+  .order_table tr:nth-child(odd) {
+    background-color: {{"email_order_table_background_color_odd" | customizable : customization.email_order_table_background_color_odd, preview }};
+  }
+  .order_table th {
+    background-color: {{"email_order_table_background_color_header" | customizable : customization.email_order_table_background_color_header, preview }};
+  }
+  .order_table tr:nth-child(odd) td{
+    color:{{"email_order_table_text_color_odd" | customizable : customization.email_order_table_text_color_odd, preview }};
+    
+  }
+
+  .order_table td, .order_table tr, .order_table th{
+    border: solid {{"email_order_table_border_size" | customizable : customization.email_order_table_border_size, preview }}px {{"email_order_table_border_color" | customizable : customization.email_order_table_border_color, preview }};
+    padding: {{"email_order_table_padding" | customizable : customization.email_order_table_padding, preview }}px;
+  }
+  .order_table th{
+    text-align: center;
+    font-size: 11pt;
+  }
+  .order_table{
+    margin: 20px 0px;
+  }
+  .email-content-header{
+    margin-top: 20px;
+  }
+</style>
+<table>
+  <tr>
+    <td>
+      <br/>
+      <h5>
+        Orden {{ order.number }}
+      </h5>
+      <p class="lede email-content-header">
+        {{"email_order_head_text" | customizable_with_variables : customization.email_order_head_text, preview, variables }}
+        
+      </p>
+      <p>
+        {{"email_order_please_check" | customizable_with_variables : customization.email_order_please_check, preview, variables }}
+        
+      </p>
+      
+      <table class="order_table center">
+        {{ order_contents }}
+      </table>
+      {% if order.comment %}
+        <h1>
+          Comentarios:
+        </h1>
+        <p>
+          {{ order.comment}}
+        </p>
+      {%endif%}
+      <p>
+        {{"email_order_bottom_text" | customizable_with_variables : customization.email_order_bottom_text, preview, variables }}
+      </p>
+    </td>
+    <td class="expander"></td>
+  </tr>
+</table>

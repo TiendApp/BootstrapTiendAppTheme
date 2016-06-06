@@ -1,0 +1,14 @@
+<div class="form-footer">
+  <div class="pull-left">
+    <a href="#" ng-click="sessionModalController.setState(1)">Crear Cuenta</a>|
+    <a href="#" ng-click="sessionModalController.setState(2)">Recuperar Contraseña</a>
+  </div>
+
+  <button ng-disabled="session.loading" class="btn btn-primary">
+    <i class="fa fa-refresh fa-spin" ng-show="session.loading"></i>
+    {[sessionModalController.submit]}
+  </button>
+  <button type="button" class="btn btn-error" ng-click="sessionModalController.toggle()">
+    Cancelar
+  </button>
+</div>

@@ -1,0 +1,37 @@
+<div id="carousel-widget" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      {{'header_image_1' | customizable_image : customization.header_image_1, preview, 'Header Image 1'}}
+      <h2 class="carousel-caption">
+        {{"header_title_1" | customizable : customization.header_title_1, preview}}
+      </h2>
+    </div>
+    <div class="item">
+      {{'header_image_2' | customizable_image : customization.header_image_2, preview, 'Header Image 2'}}
+      <h2 class="carousel-caption">
+        {{"header_title_2" | customizable : customization.header_title_2, preview}}
+      </h2>
+    </div>
+    <div class="item">
+      {{'header_image_3' | customizable_image : customization.header_image_3, preview, 'Header Image 3'}}
+      <h2 class="carousel-caption">
+        {{"header_title_3" | customizable : customization.header_title_3, preview}}
+      </h2>
+    </div>
+    
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-widget" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Anterior</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-widget" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Siguiente</span>
+  </a>
+</div>
