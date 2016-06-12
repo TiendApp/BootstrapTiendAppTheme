@@ -3,6 +3,16 @@
 /*----------------------- */
 /* General */
 
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer{
+  margin-top: auto;
+}
+
 .animate-fade{
   -webkit-transition:all ease-in 0.3s;
   transition:all ease-in 0.3s;
@@ -156,7 +166,7 @@ h1, h2{
 
 @media screen and (max-width: 767px) {
   .navbar{
-    max-height: 148px;
+    max-height: 164px;
   }
 }
 .navbar .navbar-brand img{
@@ -176,6 +186,15 @@ a{
 @media screen and (max-width: 767px) {
   .navbar-collapse{
     background-color: white;
+    border: solid 1px #f0f0f0 !important;
+    box-shadow: #e4e4e4 1px;
+    -webkit-box-shadow: 0px 3px 10px 0px rgba(128,128,128,1);
+    -moz-box-shadow: 0px 3px 10px 0px rgba(128,128,128,1);
+    box-shadow: 0px 3px 10px 0px rgba(128,128,128,1);
+  }
+
+  .navbar-header{
+    height: 153px;
   }
   /*.navbar button[type="submit"]{
     margin-top: -3px;
@@ -192,6 +211,7 @@ a{
     color: white;
     background-color: rgba(255,255,255,0); 
     border: 1px solid transparent;
+    box-shadow: none;
   }
   
   .home-navbar .navbar-nav > .open > a, .home-navbar .navbar-nav > .open > a:hover, .home-navbar .navbar-nav > .open > a:focus{
@@ -391,6 +411,7 @@ i.ng-hide-add, i.ng-hide-remove, i.ng-hide-animate, i.ng-hide-add-active, span.n
 
 .products-container .product-col{
   text-align: center;
+  padding: 10px;
 }
 
 .products-container #products .product-image-container{
@@ -1268,7 +1289,13 @@ hr {
   display: inline-block;
   font-size: 24px;
   padding: 0px;
+  box-shadow: none;
 }
+
+.social-btn i{
+    vertical-align: middle;
+}
+
 .social-btn:hover{
   color: white;
 }

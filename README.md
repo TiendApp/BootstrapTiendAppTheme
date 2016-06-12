@@ -4,6 +4,14 @@
 
 TiendApp ([https://www.tiendapp.cl](https://www.tiendapp.cl "TiendApp online website")) is a web application that creates Ecommerce web pages. TiendApp aims to be fast, easy and customizable, achieving the last objective by providing customizable themes. *Bootstrap Theme for TiendApp* is a free theme that can be used as a base for creating new themes. Eventually, you could earn profit by publishing your theme at TiendApp's theme store.
 
+## Pending Stuff (TODO)
+
+1. Display advertised promotions in the product view and in the product index
+
+2. Add Facebook's og-tags to the product view.
+
+3. Change meta-title on category navigation to improve SEO.
+
 ## Guidelines for creating your own theme
 
 ### Introduction
