@@ -152,7 +152,7 @@
             "type": "image",
             "id": "logo_navbar",
             "label": "Logo",
-            "default": "logo_navbar.png",
+            "default": "/images/logo_navbar.png",
             "info": "Logo que se mostrará en la barra de navegación. Ancho recomendado: 240px"
           }
         ]
@@ -324,21 +324,21 @@
             "type": "image",
             "id": "header_image_1",
             "label": "Imagen 1",
-            "default": "header_image_1.png",
+            "default": "/images/header_image_1.png",
             "info": "Imagen para primera vista del slideshow de fotos."
           },
           {
             "type": "image",
             "id": "header_image_2",
             "label": "Imagen 2",
-            "default": "header_image_2.png",
+            "default": "/images/header_image_2.png",
             "info": "Imagen para primera vista del slideshow de fotos."
           },
           {
             "type": "image",
             "id": "header_image_3",
             "label": "Imagen 3",
-            "default": "header_image_3.png",
+            "default": "/images/header_image_3.png",
             "info": "Imagen para primera vista del slideshow de fotos."
           },
           {
@@ -394,7 +394,7 @@
             "type": "image",
             "id": "blog_header",
             "label": "Imagen encabezado",
-            "default": "blog_header.jpg",
+            "default": "/images/blog_header.jpg",
             "info": "Imagen para el encabezado del blog."
           },
           {
