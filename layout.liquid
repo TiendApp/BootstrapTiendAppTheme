@@ -2,11 +2,15 @@
 
   <head>
     {{ 'css/bootstrap.min.css' | asset_url | stylesheet_tag }}
-    {{ 'js/bootstrap.min.js' | asset_url | javascript_tag }}
     {{ 'css/theme.css' | asset_url | stylesheet_tag }}
     {{ 'css/bootstrap-submenu.min.css' | asset_url | stylesheet_tag }}
     {{ 'css/ui-notification.css' | asset_url | stylesheet_tag }}
+    {{ 'css/angucomplete.css' | asset_url | stylesheet_tag }}
+    {{ 'js/bootstrap.min.js' | asset_url | javascript_tag }}
     {{ 'js/sessions.js' | asset_url | javascript_tag }}
+    {{ 'js/angucomplete-alt.min.js' | asset_url | javascript_tag }}
+    {{ 'js/search.js' | asset_url | javascript_tag }}
+
     {% include 'utils/fonts' %}
 
     {% include 'customizations' %}

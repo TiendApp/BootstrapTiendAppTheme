@@ -9,6 +9,10 @@ body{
   min-height: 100vh;
 }
 
+.full-width{
+  width: 100%;
+}
+
 .footer{
   margin-top: auto;
 }
@@ -17,7 +21,7 @@ body{
   -webkit-transition:all ease-in 0.3s;
   transition:all ease-in 0.3s;
   opacity: 1;
-  
+
 }
 .animate-fade.ng-show{
   opacity:1;
@@ -114,7 +118,7 @@ h1, h2{
 .block ul{
   display: block;
   padding: 0 10px 0 0;
-} 
+}
 .block ul li{
   display: inline-block;
   padding: 0 5px;
@@ -127,7 +131,7 @@ h1, h2{
 .inline ul{
   display: inline-block;
   padding: 0 15px 0 0;
-} 
+}
 .inline ul li{
   display: inline-block;
   padding: 0;
@@ -142,7 +146,7 @@ h1, h2{
 }
 #body-container{
   position: relative;
-  padding-bottom: 40px; 
+  padding-bottom: 40px;
 }
 /* Navbar */
 .navbar{
@@ -155,7 +159,7 @@ h1, h2{
   margin-bottom: 0px;
 
   -webkit-transition: all 0.5s ease-in; /* Safari */
-  transition: all 0.5s ease-in;   
+  transition: all 0.5s ease-in;
 }
 .navbar li.categories-dropdown{
     padding: 3px 0px;
@@ -209,11 +213,11 @@ a{
   }
   .navbar.home-navbar{
     color: white;
-    background-color: rgba(255,255,255,0); 
+    background-color: rgba(255,255,255,0);
     border: 1px solid transparent;
     box-shadow: none;
   }
-  
+
   .home-navbar .navbar-nav > .open > a, .home-navbar .navbar-nav > .open > a:hover, .home-navbar .navbar-nav > .open > a:focus{
       background-color: rgba(0,0,0,0);
       color: #dadada;
@@ -227,12 +231,16 @@ a{
   .navbar.home-navbar a, .home-navbar.navbar-default li > a, .home-navbar .navbar-brand{
     color: white;
   }
-  
-  
-  
+
+
+
 }
 
 /* Search input */
+.navbar-form .search-bar-sm .form-control{
+  width: 100%;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1024px){
   .navbar-search-form{
     width: 240px;
@@ -252,7 +260,12 @@ a{
 }
 
 .navbar .search-bar-sm{
-  width: 100%;
+  width: 80%;
+  display: inline-block;
+}
+.navbar .search-bar-btn{
+  width: 0%;
+  display: inline-block;
 }
 
 .btn.btn-empty {
@@ -426,7 +439,7 @@ i.ng-hide-add, i.ng-hide-remove, i.ng-hide-animate, i.ng-hide-add-active, span.n
 .products-container .sorts ul{
   display: inline-block;
   padding: 0 10px;
-} 
+}
 
 .products-container .sorts ul li{
   display: inline-block;
@@ -436,7 +449,7 @@ i.ng-hide-add, i.ng-hide-remove, i.ng-hide-animate, i.ng-hide-add-active, span.n
 .products-container .sorts ul li.select, .products-container .sorts ul li.select:focus{
   font-weight: 900;
   text-decoration: none;
-} 
+}
 
 .products-header{
   margin-top: 20px;
@@ -481,7 +494,7 @@ i.ng-hide-add, i.ng-hide-remove, i.ng-hide-animate, i.ng-hide-add-active, span.n
 }
 /*#products .products-row.ng-leave {
   -webkit-transition: opacity linear 0.1s;
-  transition: opacity linear 0.1s; 
+  transition: opacity linear 0.1s;
   opacity: 1;
 }
 #products .products-row.ng-leave-active {
@@ -505,7 +518,7 @@ i.ng-hide-add, i.ng-hide-remove, i.ng-hide-animate, i.ng-hide-add-active, span.n
   font-weight: bold;
 }
 @media screen and (min-width: 991px) {
-  
+
 }
 .product-snippet-container .product-snippet-price{
   color: #666;
@@ -551,7 +564,7 @@ i.ng-hide-add, i.ng-hide-remove, i.ng-hide-animate, i.ng-hide-add-active, span.n
   height: 100%;
   background-color: #ffffff;
   z-index: 4;
-  padding: 20px 10px;  
+  padding: 20px 10px;
   overflow-x: hidden;
   overflow-y: scroll;
   color: #404040;
@@ -611,7 +624,7 @@ i.ng-hide-add, i.ng-hide-remove, i.ng-hide-animate, i.ng-hide-add-active, span.n
 
 #mini-cart a, #cart a{
   color: #404040;
-  
+
 }
 
 #mini-cart a:hover, #cart a:hover{
@@ -643,10 +656,10 @@ i.ng-hide-add, i.ng-hide-remove, i.ng-hide-animate, i.ng-hide-add-active, span.n
   font-size: 10pt;
 }
 
-#mini-cart table#mini-cart-table td.quantity, #cart table#mini-cart-table td.quantity{ 
+#mini-cart table#mini-cart-table td.quantity, #cart table#mini-cart-table td.quantity{
 }
 #mini-cart table#mini-cart-table td.refresh, #cart table#mini-cart-table td.refresh{
-  padding: 0px; 
+  padding: 0px;
   min-width: 15px;
 }
 #mini-cart table#mini-cart-table td.refresh a, #cart table#mini-cart-table td.refresh a{
@@ -660,7 +673,7 @@ i.ng-hide-add, i.ng-hide-remove, i.ng-hide-animate, i.ng-hide-add-active, span.n
 #mini-cart table#mini-cart-table td.refresh a, #cart table#mini-cart-table td.refresh a{
   opacity: 1;
 }
-#mini-cart table#mini-cart-table td.quantity input[type="number"], #cart table#mini-cart-table td.quantity input[type="number"]{ 
+#mini-cart table#mini-cart-table td.quantity input[type="number"], #cart table#mini-cart-table td.quantity input[type="number"]{
   width: 56px;
   color: black;
 }
@@ -708,7 +721,7 @@ i.ng-hide-add, i.ng-hide-remove, i.ng-hide-animate, i.ng-hide-add-active, span.n
 }
 .footer p, .footer a{
   color: white;
-  font-size: 14pt;  
+  font-size: 14pt;
 }
 
 .footer .phone i, .footer .mail i{
@@ -761,7 +774,7 @@ i.ng-hide-add, i.ng-hide-remove, i.ng-hide-animate, i.ng-hide-add-active, span.n
 .product-container .product-title{
   text-transform: uppercase;
   margin-top: 0px;
-  
+
 }
 .product-container .product-price{
   font-size: 14pt;
@@ -816,7 +829,7 @@ i.ng-hide-add, i.ng-hide-remove, i.ng-hide-animate, i.ng-hide-add-active, span.n
 
 .transition{
   -webkit-transition: all 0.5s ease-in; /* Safari */
-  transition: all 0.5s ease-in;  
+  transition: all 0.5s ease-in;
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {

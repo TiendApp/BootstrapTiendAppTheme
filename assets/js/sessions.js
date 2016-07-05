@@ -1,5 +1,4 @@
 angular.module('sessionModal', [])
-
 .controller('sessionModalController', ['$timeout', function($timeout) {
   controller = this;
   this.modal = false;
@@ -24,4 +23,3 @@ angular.module('sessionModal', [])
 
 var app = angular.module('tiendAppFrontend');
 app.requires.push('sessionModal');
-

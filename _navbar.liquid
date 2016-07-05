@@ -76,11 +76,27 @@
           </ul>
         </ul>
         <form class=" navbar-search-form navbar-form navbar-left visible-sm-block visible-md-block visible-lg-block   " ng-init="search = false">
-          <div class="input-group search-bar-sm">
-            <input type="text" class="form-control" placeholder="Buscar" ng-model="products.query" ng-disabled="products.loading()" ng-enter="products.search(products.query)" ng-cloak>
-            <span class="input-group-btn">
-              <button type="submit" class="btn btn-default" ng-click="products.search(products.query)"><span class="glyphicon glyphicon-search" ng-disabled="products.loading()"/></button>
-            </span>
+          <div class="search-bar-sm" ng-controller="searchController">
+            <angucomplete-alt id="product_search"
+              placeholder="Buscar"
+              pause="400"
+              input-changed="searchInputChanged"
+              selected-object="searchObjectSelected"
+              initial-value="products.query"
+              remote-url="/api/products.json?q[name_cont]="
+              remote-url-data-field="products"
+              title-field="name"
+              description-field="plain_description"
+              input-class="form-control full-width"
+              ng-disabled="products.loading()"
+              ng-enter="products.search(products.query)"
+              min-length="3"
+              text-searching="Buscando..."
+              text-no-results="No hay resultados."
+              ng-cloak />
+          </div>
+          <div class="search-bar-btn">
+            <button type="submit" class="btn btn-default" ng-click="products.search(products.query)"><span class="glyphicon glyphicon-search" ng-disabled="products.loading()"/></button>
           </div>
 
         </form>
