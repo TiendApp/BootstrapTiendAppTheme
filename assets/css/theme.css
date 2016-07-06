@@ -64,7 +64,7 @@ a:hover, a:focus{
       font-size: 16pt;
     }
     #main_container{
-      margin-top: 150px;
+      margin-top: 102px;
     }
 }
 @media screen and (min-width: 768px) {
@@ -170,7 +170,6 @@ h1, h2{
 
 @media screen and (max-width: 767px) {
   .navbar{
-    max-height: 164px;
   }
 }
 .navbar .navbar-brand img{
@@ -198,7 +197,7 @@ a{
   }
 
   .navbar-header{
-    height: 153px;
+    height: 90px;
   }
   /*.navbar button[type="submit"]{
     margin-top: -3px;
@@ -208,7 +207,7 @@ a{
   }
  }
 @media screen and (min-width: 768px){
-  .navbar.home-navbar a:hover, .home-navbar.navbar-default li > a:hover, .home-navbar.navbar-default li > a:focus, .home-navbar .navbar-brand:hover, .home-navbar .navbar-brand:focus, .nav input {
+  .navbar.home-navbar a:hover, .home-navbar.navbar-default li > a:hover, .home-navbar.navbar-default li > a:focus, .home-navbar .navbar-brand:hover, .home-navbar .navbar-brand:focus {
     color: #dadada;
   }
   .navbar.home-navbar{
@@ -228,7 +227,7 @@ a{
     color: #777;
   }
 
-  .navbar.home-navbar a, .home-navbar.navbar-default li > a, .home-navbar .navbar-brand, .nav input{
+  .navbar.home-navbar a, .home-navbar.navbar-default li > a, .home-navbar .navbar-brand{
     color: white;
   }
 

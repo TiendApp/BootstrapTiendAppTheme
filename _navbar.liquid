@@ -1,155 +1,167 @@
-  {% if template_for == 'home' %}
-    <nav class="navbar navbar-default home-navbar" ng-class='products.home && !scrollToggle ? "home-navbar" : "opaque-navbar"' my-navscroll>
-  {% else %}
-    <nav class="navbar navbar-default opaque-navbar" >
-  {% endif %}
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <ul class="navbar-nav nav navbar-right pull-right">
-          <li class="float-left">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
-          </li>
-          {% if user.has_cart? %}
-              <li class="float-left visible-xs-block" style="padding:3px 0px"><a href="/cart"   ng-cloak>
-                ({[cart.itemsInCartCount]})<span class="glyphicon glyphicon-shopping-cart"/>
-              </a></li>
-              {% include 'widgets/cart' %}
-            {% endif %}
-
-
-        </ul>
-
-        <ul class="nav navbar-nav  ">
-          <li>
-            <a class="navbar-brand" href="/#" ng-click="products.goHome(); search = false; products.query = ''">
-              {{'logo_navbar' | customizable_image : customization.logo_navbar, preview, 'Logo'}}
-            </a>
-          </li>
-        </ul>
-
-
-        <form class="navbar-form navbar-left visible-xs-block  " ng-init="search = false">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Buscar" ng-model="products.query" ng-disabled="products.loading()" ng-enter="products.search(products.query)" ng-cloak>
-            <span class="input-group-btn">
-              <button type="submit" class="btn btn-default" ng-click="products.search(products.query)"><span class="glyphicon glyphicon-search" ng-disabled="products.loading()"/></button>
-            </span>
-          </div>
-
-        </form>
-
-
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="dropdown ">
-            <a tabindex="0" href data-submenu data-toggle="dropdown" aria-expanded="false">
-              <span class="visible-sm-block fa fa-bars"></span>
-              <span class="visible-lg-block visible-xs-block visible-md-block">Categorías<span class="caret"></span>
-            </a>
-          <ul class="dropdown-menu">
-
-            {% for root_taxon in root_taxons %}
-              {% if root_taxon.has_children? %}
-                <li class="dropdown-submenu" ng-cloak>
-                  <a tabindex="0" href data-url="/#categories/{{root_taxon.id}}/{{root_taxon.name | downcase}}" data-submenu data-toggle="dropdown" aria-expanded="false">{{root_taxon.name}}</a>
-                  <ul class="dropdown-menu">
-                    {% for taxon in root_taxon.children %}
-                      {% include 'navbar_submenu' %}
-                    {% endfor %}
-                  </ul>
-                </li>
-              {% else %}
-                <li class=""><a tabindex="0" href="/#categories/{{root_taxon.id}}/{{root_taxon.name | downcase}}">{{root_taxon.name}} </a></li>
-              {% endif %}
-            {% endfor %}
-          </li>
-
-          </ul>
-        </ul>
-        <form class=" navbar-search-form navbar-form navbar-left visible-sm-block visible-md-block visible-lg-block   " ng-init="search = false">
-          <div class="search-bar-sm" ng-controller="searchController">
-            <angucomplete-alt id="product_search"
-              placeholder="Buscar"
-              pause="400"
-              input-changed="searchInputChanged"
-              selected-object="searchObjectSelected"
-              initial-value="products.query"
-              remote-url="/api/products.json?q[name_cont]="
-              remote-url-data-field="products"
-              title-field="name"
-              description-field="plain_description"
-              input-class="form-control full-width"
-              ng-disabled="products.loading()"
-              ng-enter="products.search(products.query)"
-              min-length="3"
-              text-searching="Buscando..."
-              text-no-results="No hay resultados."
-              ng-cloak />
-          </div>
-          <div class="search-bar-btn">
-            <button type="submit" class="btn btn-default" ng-click="products.search(products.query)"><span class="glyphicon glyphicon-search" ng-disabled="products.loading()"/></button>
-          </div>
-
-        </form>
-        <ul class="nav navbar-nav">
-          {% for page in store.main_pages %}
-            <li>
-              <a href="/pages/{{page.slug}}">
-                {{page.title}}
-              </a>
-            </li>
-          {% endfor %}
-          {% if user.has_blog? %}
-            <li>
-              <a href="/blog">
-                Blog
-              </a>
-            </li>
-          {% endif %}
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right" ng-show="!cart.loadingCart()">
-           <li class="dropdown " ng-show="session.userSignedIn()" ng-cloak>
-            <a tabindex="0" href data-submenu data-toggle="dropdown" aria-expanded="false">
-              <span class="fa fa-user"></span><span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-              {% if user.is_admin? %}
-                <li class=""><a href="/admin">Admin</a></li>
-              {% endif %}
-
-              {% if user.has_users? %}
-                  <li class=""><a href="/account" ng-show="session.userSignedIn()" ng-cloak>Mi Cuenta</a></li>
-                  <li class=""><a href="#" ng-show="session.userSignedIn()" ng-click="session.logout()" ng-cloak>Cerrar Sesión</a></li>
-
-              {% endif %}
-            </ul>
-          </li>
-          {% if user.has_users? %}
-            <li class=""><a href="#" ng-hide="session.userSignedIn()" ng-click="sessionModalController.toggle()" ng-cloak>Ingresar</a></li>
-          {% endif %}
-          {% if user.has_cart? %}
-            <li class="float-left visible-sm-block visible-md-block visible-lg-block"><a href="#" ng-click="cart.showCart()"  ng-cloak>
+{% if template_for == 'home' %}
+  <nav class="navbar navbar-default home-navbar" ng-class='products.home && !scrollToggle ? "home-navbar" : "opaque-navbar"' my-navscroll>
+{% else %}
+  <nav class="navbar navbar-default opaque-navbar" >
+{% endif %}
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <ul class="navbar-nav nav navbar-right pull-right">
+        <li class="float-left">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+        </li>
+        {% if user.has_cart? %}
+            <li class="float-left visible-xs-block" style="padding:3px 0px"><a href="/cart"   ng-cloak>
               ({[cart.itemsInCartCount]})<span class="glyphicon glyphicon-shopping-cart"/>
             </a></li>
             {% include 'widgets/cart' %}
           {% endif %}
 
+
+      </ul>
+
+      <ul class="nav navbar-nav  ">
+        <li>
+          <a class="navbar-brand" href="/#" ng-click="products.goHome(); search = false; products.query = ''">
+            {{'logo_navbar' | customizable_image : customization.logo_navbar, preview, 'Logo'}}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <form class="navbar-form navbar-left visible-xs-block  " ng-init="search = false">
+        <div class="search-bar-sm" ng-controller="searchController">
+          <angucomplete-alt id="product_search"
+            placeholder="Buscar"
+            pause="400"
+            input-changed="searchInputChanged"
+            selected-object="searchObjectSelected"
+            initial-value="products.query"
+            remote-url="/api/products.json?q[name_cont]="
+            remote-url-data-field="products"
+            title-field="name"
+            description-field="plain_description"
+            input-class="form-control full-width"
+            ng-disabled="products.loading()"
+            ng-enter="products.search(products.query)"
+            min-length="3"
+            text-searching="Buscando..."
+            text-no-results="No hay resultados."
+            ng-cloak />
+        </div>
+        <div class="search-bar-btn">
+          <button type="submit" class="btn btn-default" ng-click="products.search(products.query)"><span class="glyphicon glyphicon-search" ng-disabled="products.loading()"/></button>
+        </div>
+
+      </form>
+      <ul class="nav navbar-nav">
+        <li class="dropdown ">
+          <a tabindex="0" href data-submenu data-toggle="dropdown" aria-expanded="false">
+            <span class="visible-sm-block fa fa-bars"></span>
+            <span class="visible-lg-block visible-xs-block visible-md-block">Categorías<span class="caret"></span>
+          </a>
+        <ul class="dropdown-menu">
+
+          {% for root_taxon in root_taxons %}
+            {% if root_taxon.has_children? %}
+              <li class="dropdown-submenu" ng-cloak>
+                <a tabindex="0" href data-url="/#categories/{{root_taxon.id}}/{{root_taxon.name | downcase}}" data-submenu data-toggle="dropdown" aria-expanded="false">{{root_taxon.name}}</a>
+                <ul class="dropdown-menu">
+                  {% for taxon in root_taxon.children %}
+                    {% include 'navbar_submenu' %}
+                  {% endfor %}
+                </ul>
+              </li>
+            {% else %}
+              <li class=""><a tabindex="0" href="/#categories/{{root_taxon.id}}/{{root_taxon.name | downcase}}">{{root_taxon.name}} </a></li>
+            {% endif %}
+          {% endfor %}
+        </li>
+
         </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-  {{ 'js/navbar_responsive_navigation.js' | asset_url | javascript_tag }}
-  {{ 'js/bootstrap-submenu.min.js' | asset_url | javascript_tag }}
-  <script type="text/javascript">
-    $('[data-submenu]').submenupicker();
-  </script>
+      </ul>
+      <form class=" navbar-search-form navbar-form navbar-left visible-sm-block visible-md-block visible-lg-block   " ng-init="search = false">
+        <div class="search-bar-sm" ng-controller="searchController">
+          <angucomplete-alt id="product_search"
+            placeholder="Buscar"
+            pause="400"
+            input-changed="searchInputChanged"
+            selected-object="searchObjectSelected"
+            initial-value="products.query"
+            remote-url="/api/products.json?q[name_cont]="
+            remote-url-data-field="products"
+            title-field="name"
+            description-field="plain_description"
+            input-class="form-control full-width"
+            ng-disabled="products.loading()"
+            ng-enter="products.search(products.query)"
+            min-length="3"
+            text-searching="Buscando..."
+            text-no-results="No hay resultados."
+            ng-cloak />
+        </div>
+        <div class="search-bar-btn">
+          <button type="submit" class="btn btn-default" ng-click="products.search(products.query)"><span class="glyphicon glyphicon-search" ng-disabled="products.loading()"/></button>
+        </div>
+
+      </form>
+      <ul class="nav navbar-nav">
+        {% for page in store.main_pages %}
+          <li>
+            <a href="/pages/{{page.slug}}">
+              {{page.title}}
+            </a>
+          </li>
+        {% endfor %}
+        {% if user.has_blog? %}
+          <li>
+            <a href="/blog">
+              Blog
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right" ng-show="!cart.loadingCart()">
+         <li class="dropdown " ng-show="session.userSignedIn()" ng-cloak>
+          <a tabindex="0" href data-submenu data-toggle="dropdown" aria-expanded="false">
+            <span class="fa fa-user"></span><span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            {% if user.is_admin? %}
+              <li class=""><a href="/admin">Admin</a></li>
+            {% endif %}
+
+            {% if user.has_users? %}
+                <li class=""><a href="/account" ng-show="session.userSignedIn()" ng-cloak>Mi Cuenta</a></li>
+                <li class=""><a href="#" ng-show="session.userSignedIn()" ng-click="session.logout()" ng-cloak>Cerrar Sesión</a></li>
+
+            {% endif %}
+          </ul>
+        </li>
+        {% if user.has_users? %}
+          <li class=""><a href="#" ng-hide="session.userSignedIn()" ng-click="sessionModalController.toggle()" ng-cloak>Ingresar</a></li>
+        {% endif %}
+        {% if user.has_cart? %}
+          <li class="float-left visible-sm-block visible-md-block visible-lg-block"><a href="#" ng-click="cart.showCart()"  ng-cloak>
+            ({[cart.itemsInCartCount]})<span class="glyphicon glyphicon-shopping-cart"/>
+          </a></li>
+          {% include 'widgets/cart' %}
+        {% endif %}
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+{{ 'js/navbar_responsive_navigation.js' | asset_url | javascript_tag }}
+{{ 'js/bootstrap-submenu.min.js' | asset_url | javascript_tag }}
+<script type="text/javascript">
+  $('[data-submenu]').submenupicker();
+</script>
