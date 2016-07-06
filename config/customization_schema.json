@@ -6,11 +6,11 @@
   },
   "customization" : [
     {
-      "settings_group": 
+      "settings_group":
       {
         "name": "Colores",
         "icon": "paint-brush",
-        "settings": 
+        "settings":
         [
           {
             "type": "header",
@@ -128,11 +128,11 @@
       }
     },
     {
-      "settings_group": 
+      "settings_group":
       {
         "name": "Generales",
         "icon": "map-o",
-        "settings": 
+        "settings":
         [
           {
             "type": "font",
@@ -159,11 +159,11 @@
       }
     },
     {
-      "settings_group": 
+      "settings_group":
       {
         "name": "Carro de Compras",
         "icon": "shopping-cart",
-        "settings": 
+        "settings":
         [
           {
             "type": "header",
@@ -219,11 +219,11 @@
       }
     },
     {
-      "settings_group": 
+      "settings_group":
       {
         "name": "Productos",
         "icon": "futbol-o",
-        "settings": 
+        "settings":
         [
           {
             "type": "header",
@@ -363,28 +363,28 @@
             "type": "color",
             "id": "home_subscribe_background_color",
             "label": "Color del fondo",
-            "default": "#606060",
+            "default": "#faf9f5",
             "info": "Color que tendrá el fondo de la sección de suscripción."
           },
           {
             "type": "color",
             "id": "home_subscribe_text_color",
             "label": "Color del texto",
-            "default": "#f0f0f0",
+            "default": "#050505",
             "info": "Color que tendrá el texto de la sección de suscripción."
           }
-      
+
         ]
-      
+
       }
     },
     {
-      "settings_group": 
+      "settings_group":
       {
         "name": "Blog",
         "icon": "rss",
         "id": "blog",
-        "settings": 
+        "settings":
         [
           {
             "type": "header",
@@ -486,12 +486,12 @@
       }
     },
     {
-      "settings_group": 
+      "settings_group":
       {
         "name": "Mis Páginas Adicionales",
         "icon": "file-o",
         "id": "static_pages",
-        "settings": 
+        "settings":
         [
           {
             "type": "header",
@@ -540,11 +540,11 @@
       }
     },
     {
-      "settings_group": 
+      "settings_group":
       {
         "name": "Pie de Página",
         "icon": "file-o",
-        "settings": 
+        "settings":
         [
           {
             "type": "header",
