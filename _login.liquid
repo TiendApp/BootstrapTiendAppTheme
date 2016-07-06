@@ -1,10 +1,10 @@
-<div id ="login-container" ng-hide="sessionModalController.userSignedIn()" ng-cloak>
-  <div ng-class="sessionModalController.modal ? 'show' : 'ng-hide'" class="modal transition in" ng-hide="session.userSignedIn()" tabindex="-1" role="dialog" ng-click="sessionModalController.toggle()">
+<div id ="login-container" ng-hide="cart.loadingCart() || session.userSignedIn()" ng-cloak>
+  <div ng-class="sessionModalController.modal ? 'show' : 'ng-hide'" class="modal transition in" tabindex="-1" role="dialog" ng-click="sessionModalController.toggle()">
     <div id="form" class="modal-dialog" ng-click="$event.stopPropagation();">
 
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" ng-click="sessionModalController.toggle()"><span aria-hidden="true">&times;</span></button>
+          <button type="button" class="close" ng-click="sessionModalController.toggle() && !cart.loadingCart()"><span aria-hidden="true">&times;</span></button>
           <h4>{[sessionModalController.submit]}</h4>
         </div>
         <div ng-show="sessionModalController.tab === 0" ng-cloak>
@@ -22,5 +22,5 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
-  <div class="modal-backdrop fade in ng-hide" ng-show="sessionModalController.modal && !cart.loadingCart()" ng-click="sessionModalController.toggle()" ng-cloak></div>
+  <div class="modal-backdrop fade in ng-hide" ng-show="sessionModalController.modal" ng-click="!cart.loadingCart() && sessionModalController.toggle()" ng-cloak></div>
 </div>
