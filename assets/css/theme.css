@@ -207,7 +207,7 @@ a{
   }
  }
 @media screen and (min-width: 768px){
-  .navbar.home-navbar a:hover, .home-navbar.navbar-default li > a:hover, .home-navbar.navbar-default li > a:focus, .home-navbar .navbar-brand:hover, .home-navbar .navbar-brand:focus {
+  .navbar.home-navbar a:hover, .home-navbar.navbar-default li > a:hover, .home-navbar.navbar-default li > a:focus, .home-navbar .navbar-brand:hover, .home-navbar .navbar-brand:focus, .nav input {
     color: #dadada;
   }
   .navbar.home-navbar{
@@ -227,7 +227,7 @@ a{
     color: #777;
   }
 
-  .navbar.home-navbar a, .home-navbar.navbar-default li > a, .home-navbar .navbar-brand{
+  .navbar.home-navbar a, .home-navbar.navbar-default li > a, .home-navbar .navbar-brand, .nav input{
     color: white;
   }
 
