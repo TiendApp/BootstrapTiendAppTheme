@@ -345,6 +345,7 @@ i.ng-hide-add, i.ng-hide-remove, i.ng-hide-animate, i.ng-hide-add-active, span.n
 }
 .carousel .carousel-inner>.item>img{
   width: 100%;
+  height: auto;
 }
 .carousel .carousel-inner .carousel-caption{
   position: absolute;
