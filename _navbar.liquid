@@ -27,18 +27,25 @@
 
       <ul class="nav navbar-nav  ">
         <li>
-          {% if customization.use_dark_logo ==  "true" %}
-            <a ng-show="products.home && !scrollToggle" class="navbar-brand no-animate" href="/#" ng-click="products.goHome(); search = false; products.query = ''">
-              {{'logo_navbar' | customizable_image : customization.logo_navbar, preview, 'Logo'}}
-            </a>
-            <a ng-show="!products.home || scrollToggle" class="navbar-brand no-animate" href="/#" ng-click="products.goHome(); search = false; products.query = ''" ng-cloak>
-              {{'logo_navbar_dark' | customizable_image : customization.logo_navbar_dark, preview, 'Logo'}}
-            </a>
-          {% else %}
+          {% if template_for != 'home' and customization.use_dark_logo ==  "true" %}
             <a class="navbar-brand" href="/#" ng-click="products.goHome(); search = false; products.query = ''">
               {{'logo_navbar' | customizable_image : customization.logo_navbar, preview, 'Logo'}}
             </a>
+          {% else %}
+            {% if customization.use_dark_logo ==  "true" %}
+              <a ng-show="products.home && !scrollToggle" class="navbar-brand no-animate" href="/#" ng-click="products.goHome(); search = false; products.query = ''">
+                {{'logo_navbar' | customizable_image : customization.logo_navbar, preview, 'Logo'}}
+              </a>
+              <a ng-show="!products.home || scrollToggle" class="navbar-brand no-animate" href="/#" ng-click="products.goHome(); search = false; products.query = ''" ng-cloak>
+                {{'logo_navbar_dark' | customizable_image : customization.logo_navbar_dark, preview, 'Logo'}}
+              </a>
+            {% else %}
+              <a class="navbar-brand" href="/#" ng-click="products.goHome(); search = false; products.query = ''">
+                {{'logo_navbar' | customizable_image : customization.logo_navbar, preview, 'Logo'}}
+              </a>
+            {% endif %}
           {% endif %}
+
         </li>
       </ul>
     </div>
