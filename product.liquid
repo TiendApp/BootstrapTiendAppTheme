@@ -1,10 +1,10 @@
 <span ng-controller="ProductController as product" >
   {% include 'widgets/breadcrumbs' %}
-  <div class="product-container" ng-init="product.load({{product.id}})">  
-    
+  <div class="product-container" ng-init="product.load({{product.id}})">
+
     <div class="row">
       <div class="product-image-container col-sm-6">
-        <div class="main-image">                
+        <div class="main-image">
           <img ng-src="{[product.image]}">
         </div>
         <div class="thumbnails">
@@ -17,8 +17,11 @@
         <h3 class="product-title">
           {{product.name}}
         </h3>
-        <p class="product-price">
-          {{product.price | chilean_currency}}
+        <p class="product-price" ng-class="{'old-price': product.promo_price != null}">
+          {[product.display_price]}
+        </p>
+        <p class="product-price promo-price" ng-show="product.promo_price != null">
+          {[product.promo_price | currency : '$' : 0 | comma_to_dot]}
         </p>
         <div class="variants">
           {% for variant in product.variants %}
@@ -29,8 +32,8 @@
           <br/>
         </div>
         </ul>
-        {% if user.has_cart? %}  
-          <div class="row available-actions">        
+        {% if user.has_cart? %}
+          <div class="row available-actions">
             <div class="col-sm-6">
               <p class="in-stock" ng-init="product.inStock = {{product.in_stock?}}">
                 {% if product.in_stock? %}
@@ -38,7 +41,7 @@
                 {% else %}
                   Sin Stock
                 {% endif %}
-              </p>  
+              </p>
             </div>
             <div class="col-xs-2">
               <div class="form-group">
@@ -49,22 +52,22 @@
                 {% endif %}
               </div>
             </div>
-             
+
 
             <div class="col-xs-4">
               {% include 'cart_button_product' %}
             </div>
-          
+
           </div>
-        {% endif %} 
-        
+        {% endif %}
+
         <div class="divisor"></div>
         <div class="row">
           <p>
             {{product.description}}
           </p>
         </div>
-        
+
         <div class="row" ng-cloak>
           <br>
           <span class = "inline" ng-repeat="property in product.properties">
@@ -101,6 +104,6 @@
           </div>
         </a>
       </li>
-    </ul>  
+    </ul>
   </div>
 </span>

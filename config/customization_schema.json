@@ -154,6 +154,22 @@
             "label": "Logo",
             "default": "/images/logo_navbar.png",
             "info": "Logo que se mostrará en la barra de navegación. Ancho recomendado: 240px"
+          },
+          {
+            "type": "checkbox",
+            "id": "use_dark_logo",
+            "label": "Usar logo oscuro",
+            "value_when_checked": "true",
+            "value_when_unchecked": "false",
+            "default": "false",
+            "info": "Elige si cambiar el logo por uno oscuro cuando la barra navegadora pase a tener fondo blanco."
+          },
+          {
+            "type": "image",
+            "id": "logo_navbar_dark",
+            "label": "Logo Oscuro",
+            "default": "/images/logo_navbar.png",
+            "info": "Logo que se mostrará en la barra de navegación cuando ésta tenga fondo blanco. Ancho recomendado: 240px"
           }
         ]
       }
@@ -363,14 +379,14 @@
             "type": "color",
             "id": "home_subscribe_background_color",
             "label": "Color del fondo",
-            "default": "#faf9f5",
+            "default": "#606060",
             "info": "Color que tendrá el fondo de la sección de suscripción."
           },
           {
             "type": "color",
             "id": "home_subscribe_text_color",
             "label": "Color del texto",
-            "default": "#050505",
+            "default": "#f0f0f0",
             "info": "Color que tendrá el texto de la sección de suscripción."
           }
 
@@ -633,11 +649,29 @@
             "info": "Dirección de tu página en Facebook."
           },
           {
+            "type": "checkbox",
+            "id": "footer_facebook_show",
+            "label": "Mostrar botón Facebook",
+            "value_when_checked": "inline-block",
+            "value_when_unchecked": "none",
+            "default": "inline-block",
+            "info": "Elige si mostrar o no el botón de Facebook en el pie de página."
+          },
+          {
             "type": "text",
             "id": "footer_link_twitter",
             "label": "URL Twitter",
             "default": "https://twitter.com/TiendAppChile",
             "info": "Dirección de tu página en Twitter."
+          },
+          {
+            "type": "checkbox",
+            "id": "footer_twitter_show",
+            "label": "Mostrar botón Twitter",
+            "value_when_checked": "inline-block",
+            "value_when_unchecked": "none",
+            "default": "inline-block",
+            "info": "Elige si mostrar o no el botón de Twitter en el pie de página."
           },
           {
             "type": "text",
@@ -647,11 +681,29 @@
             "info": "Dirección de tu página en Instagram."
           },
           {
+            "type": "checkbox",
+            "id": "footer_instagram_show",
+            "label": "Mostrar botón Instagram",
+            "value_when_checked": "inline-block",
+            "value_when_unchecked": "none",
+            "default": "inline-block",
+            "info": "Elige si mostrar o no el botón de Instagram en el pie de página."
+          },
+          {
             "type": "text",
             "id": "footer_link_pinterest",
             "label": "URL Pinterest",
             "default": "https://www.pinterest.com/tiendapp",
             "info": "Dirección de tu página en Pinterest."
+          },
+          {
+            "type": "checkbox",
+            "id": "footer_pinterest_show",
+            "label": "Mostrar botón Pinterest",
+            "value_when_checked": "inline-block",
+            "value_when_unchecked": "none",
+            "default": "inline-block",
+            "info": "Elige si mostrar o no el botón de Pinterest en el pie de página."
           }
 
         ]

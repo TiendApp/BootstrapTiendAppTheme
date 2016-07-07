@@ -5,15 +5,27 @@
   .footer .mail{
     display: {{ "footer_email_show" | customizable : customization.footer_email_show, preview }};
   }
+  .footer .facebook-btn{
+    display: {{ "footer_facebook_show" | customizable : customization.footer_facebook_show, preview }};
+  }
+  .footer .twitter-btn{
+    display: {{ "footer_twitter_show" | customizable : customization.footer_twitter_show, preview }};
+  }
+  .footer .instagram-btn{
+    display: {{ "footer_instagram_show" | customizable : customization.footer_instagram_show, preview }};
+  }
+  .footer .pinterest-btn{
+    display: {{ "footer_pinterest_show" | customizable : customization.footer_pinterest_show, preview }};
+  }
   .footer{
     background-color: {{ "footer_background_color" | customizable : customization.footer_background_color, preview }};
     color: {{ "footer_text_color" | customizable : customization.footer_text_color, preview }};
   }
   .footer a{
-    color: {{ "footer_link_color" | customizable : customization.footer_link_color, preview }}; 
+    color: {{ "footer_link_color" | customizable : customization.footer_link_color, preview }};
   }
   .footer a:hover{
-    color: {{ "footer_link_color_hover" | customizable : customization.footer_link_color_hover, preview }}; 
+    color: {{ "footer_link_color_hover" | customizable : customization.footer_link_color_hover, preview }};
   }
   .footer hr{
     border-top: 1px solid {{ "footer_text_color" | customizable : customization.footer_text_color, preview }};
@@ -21,18 +33,26 @@
 </style>
 <div class="footer">
   <div class="row">
-    <div class="col-sm-4">    
+    <div class="col-sm-4">
       <h5>
         {{ "footer_header_text" | customizable : customization.footer_header_text, preview }}
-      </h5>  
+      </h5>
     </div>
     <div class="col-sm-8">
-      
+
       <div class="text-right text-center-xs social-buttons-by-side" style="margin-top: 10px;">
-        <a target="_blank" href="{{ 'footer_link_facebook' | customizable : customization.footer_link_facebook, preview }}"><div class="social-btn btn facebook"><i class="fa fa-facebook"></i></div></a>
-        <a target="_blank" href="{{ 'footer_link_twitter' | customizable : customization.footer_link_twitter, preview }}"><div class="social-btn btn twitter"><i class="fa fa-twitter"></i></div></a>
-        <a target="_blank" href="{{ 'footer_link_instagram' | customizable : customization.footer_link_instagram, preview }}"><div class="social-btn btn instagram"><i class="fa fa-instagram"></i></div></a>
-        <a target="_blank" href="{{ 'footer_link_pinterest' | customizable : customization.footer_link_pinterest, preview }}"><div class="social-btn btn pinterest"><i class="fa fa-pinterest"></i></div></a>
+        {% if customization.footer_facebook_show == "inline-block" or preview == true %}
+          <a class="facebook-btn" target="_blank" href="{{ 'footer_link_facebook' | customizable : customization.footer_link_facebook, preview }}"><div class="social-btn btn facebook"><i class="fa fa-facebook"></i></div></a>
+        {% endif %}
+        {% if customization.footer_twitter_show == "inline-block" or preview == true %}
+          <a class="twitter-btn" target="_blank" href="{{ 'footer_link_twitter' | customizable : customization.footer_link_twitter, preview }}"><div class="social-btn btn twitter"><i class="fa fa-twitter"></i></div></a>
+        {% endif %}
+        {% if customization.footer_instagram_show == "inline-block" or preview == true %}
+          <a class="instagram-btn" target="_blank" href="{{ 'footer_link_instagram' | customizable : customization.footer_link_instagram, preview }}"><div class="social-btn btn instagram"><i class="fa fa-instagram"></i></div></a>
+        {% endif %}
+        {% if customization.footer_pinterest_show == "inline-block" or preview == true %}
+          <a class="pinterest-btn" target="_blank" href="{{ 'footer_link_pinterest' | customizable : customization.footer_link_pinterest, preview }}"><div class="social-btn btn pinterest"><i class="fa fa-pinterest"></i></div></a>
+        {% endif %}
       </div>
 
     </div>
@@ -40,14 +60,14 @@
   <div class="row">
     <div class="col-xs-11 col-xs-offset-1">
       <p class="phone">
-        <i class="fa fa-phone"></i><span>{{ "footer_phone_number" | customizable : customization.footer_phone_number, preview }}</span>
+        <a href='tel:{{ "footer_phone_number" | customizable : customization.footer_phone_number, preview }}'> <i class="fa fa-phone"></i><span>{{ "footer_phone_number" | customizable : customization.footer_phone_number, preview }}</span></a>
       </p>
       <p class="mail">
         <a href='mailto:{{ "footer_email" | customizable : customization.footer_email, preview }}'> <i class="fa fa-envelope"></i><span>  {{ "footer_email" | customizable : customization.footer_email, preview }}</span></a>
       </p>
     </div>
   </div>
-  
+
   <hr>
   <ul class="links">
     {% if user.has_blog? %}
@@ -60,12 +80,12 @@
       {% cycle 'close rows': nil, nil, nil, '</div>' %}
     {% endif %}
     {%for page in store.pages%}
-      {% cycle 'add rows': '<div class="row">', nil, nil, nil %}  
+      {% cycle 'add rows': '<div class="row">', nil, nil, nil %}
       <div class="col-xs-3">
         <a href="/pages/{{page.slug}}">
           <li>{{page.title}}</li>
         </a>
-      </div> 
+      </div>
       {% cycle 'close rows': nil, nil, nil, '</div>' %}
     {%endfor%}
     {% cycle 'close rows': nil, '</div>', '</div>', '</div>' %}

@@ -9,6 +9,11 @@ body{
   min-height: 100vh;
 }
 
+.no-animate {
+   -webkit-transition: none !important;
+   transition: none !important;
+}
+
 .full-width{
   width: 100%;
 }
@@ -798,7 +803,12 @@ i.ng-hide-add, i.ng-hide-remove, i.ng-hide-animate, i.ng-hide-add-active, span.n
   width: 100%;
   text-align: center;
 }
-
+.product-container .product-price.old-price{
+  font-weight: normal;
+  text-decoration: line-through;
+  margin-bottom: 0px;
+  color: #9a9a9a;
+}
 
 /*Other*/
 
