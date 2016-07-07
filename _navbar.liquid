@@ -69,7 +69,8 @@
           </a>
         <ul class="dropdown-menu">
 
-          {% for root_taxon in root_taxons %}
+          {% for taxonomy in taxonomies %}
+            {% assign root_taxon = taxonomy.root %}
             {% if root_taxon.has_children? %}
               <li class="dropdown-submenu" ng-cloak>
                 <a tabindex="0" href data-url="/#categories/{{root_taxon.id}}/{{root_taxon.name | downcase}}" data-submenu data-toggle="dropdown" aria-expanded="false">{{root_taxon.name}}</a>
