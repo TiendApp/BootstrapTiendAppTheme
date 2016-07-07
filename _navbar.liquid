@@ -29,7 +29,7 @@
         <li>
           {% if template_for != 'home' and customization.use_dark_logo ==  "true" %}
             <a class="navbar-brand" href="/#" ng-click="products.goHome(); search = false; products.query = ''">
-              {{'logo_navbar' | customizable_image : customization.logo_navbar, preview, 'Logo'}}
+              {{'logo_navbar_dark' | customizable_image : customization.logo_navbar_dark, preview, 'Logo'}}
             </a>
           {% else %}
             {% if customization.use_dark_logo ==  "true" %}
