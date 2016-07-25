@@ -10,18 +10,18 @@
 <div id="cart" ng-cloak>
   <div class="row">
     <ul class="progress-indicator">
-      
+
         <li class="current"> <span class="bubble"></span>Confirmar Carro</li>
-      
-      
+
+
         <li class="next"> <span class="bubble"></span> Información de Envío</li>
-      
-      
+
+
         <li class="next"> <span class="bubble"></span>Métodos de Envío</li>
-      
-      
+
+
         <li class="next"> <span class="bubble"></span>Medios de Pago</li>
-      
+
       <li class="next"> <span class="bubble"></span> Completado </li>
     </ul>
   </div>
@@ -34,7 +34,7 @@
     <thead>
       <tr ng-hide="cart.noItems()">
         <th></th>
-        <th>Item</th>    
+        <th>Item</th>
         <th>Precio</th>
         <th>Cantidad</th>
         <th></th>
@@ -51,7 +51,7 @@
 
       <tr ng-repeat="item in cart.itemsInCart" ng-class-odd="'odd'" ng-class-even="'even'" ng-hide="cart.noItems()">
         <td class="picture">
-          <img ng-src="{[item.variant.images[0].small_url]}"/>  
+          <img ng-src="{[item.variant.images[0].small_url]}"/>
         </td>
         <td class="name">
           <h5>
@@ -59,37 +59,34 @@
               {[item.variant.name]}
             </a>
           </h5>
-          <p>
-            {[item.variant.description | cut:true:200:' ...']}
-          </p>
-        </td>   
+        </td>
         <td class="price">
           {[item.variant.price  | currency : '$' : 0 | comma_to_dot]}
-        </td>   
+        </td>
         <td class="quantity">
             <input type="number" class="form-control" ng-model="item.new_quantity" ng-init="item.new_quantity = item.quantity"/>
           </form>
         </td>
         <td class="refresh">
-          <a href="#" ng-click="cart.updateCartWithValidation(item.id, item.variant.name, item.variant.id, item.new_quantity, item.quantity)" ng-show="item.new_quantity != item.quantity" ><i class= "glyphicon glyphicon-refresh" ng-class="{'fa-spin': cart.isUpdatingElement(item.id)}" ></i></a>          
+          <a href="#" ng-click="cart.updateCartWithValidation(item.id, item.variant.name, item.variant.id, item.new_quantity, item.quantity)" ng-show="item.new_quantity != item.quantity" ><i class= "glyphicon glyphicon-refresh" ng-class="{'fa-spin': cart.isUpdatingElement(item.id)}" ></i></a>
         </td>
         <td class="subtotal">
           {[item.total  | currency : '$' : 0 | comma_to_dot]}
         </td>
-        <td>                
+        <td>
           <a href ng-click="cart.removeFromCart(item.id, item.variant.name)"><i class= "glyphicon glyphicon-remove-sign"></i></a>
         </td>
       </tr>
-      
+
     </tbody>
   </table>
   <div class="row" ng-hide="cart.noItems()">
-    
+
     <div class="col-xs-5 pull-right text-right cart-total" >
       <span>
-        Total: 
+        Total:
       </span>
-      <h4> 
+      <h4>
         {[cart.total  | currency : '$' : 0 | comma_to_dot]}
       </h4>
     </div>
