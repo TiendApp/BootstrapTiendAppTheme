@@ -2,15 +2,15 @@
   <li title="Home" href="/#" ng-click="products.goHome(); search = false; products.query = ''">{{store.name}}</li>
 
   <li ng-repeat="bread in products.productsFactory.breadcrumbs" >
-    <a href="/#categories/{[bread.id]}/{[bread.name | lowercase]}" ng-class="($last && !product) ? 'select' : ''"> 
+    <a href="/#categories/{[bread.id]}/{[bread.name | lowercase]}" ng-class="($last && !product) ? 'select' : ''">
       {[bread.name]}
-    </a>  
+    </a>
   </li>
 
 
   <li class = "dropdown" ng-if="!product">
-    <span id="sub_categories" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      <a href="#">     
+    <span id="sub_categories" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a href="javascript:;">
         Todo
         <span class="caret"></span>
       </a>
@@ -18,9 +18,9 @@
     <ul class="dropdown-menu" aria-labelledby="sub_categories">
       <li><a>Todo</a></li>
       <li ng-repeat="breadChild in products.productsFactory.breadcrumbsChildren">
-        <a href="/#categories/{[breadChild.id]}/{[breadChild.name | lowercase]}"> 
+        <a href="/#categories/{[breadChild.id]}/{[breadChild.name | lowercase]}">
          {[breadChild.name]}
-        </a>  
+        </a>
       </li>
     </ul>
   </li>
@@ -30,3 +30,8 @@
   </li>
 
 </ol>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#sub_categories').dropdown();
+  })
+</script>
