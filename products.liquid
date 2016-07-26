@@ -1,0 +1,17 @@
+{% include 'header' %}
+
+<div id="body-container" >
+  <span class="overlay" ng-show="products.loading()">
+    <i class="fa fa-circle-o-notch fa-spin fa-4x"></i>
+  </span>
+  <div class="container">
+    <div class="row" data-hook>
+
+      {% include 'widgets/breadcrumbs' %}
+      <div id="content" data-hook>
+        {% include 'products' %}
+      </div>
+
+    </div>
+  </div>
+</div>
