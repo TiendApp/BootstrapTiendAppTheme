@@ -29,7 +29,7 @@ var initializeNavbar = function(){
     }
 
   });
-  $('#navbar-collapse .category-dropdown a:not(.dropdown-submenu)').click(function(e){
+  $('#navbar-collapse .category-dropdown li:not(.dropdown-submenu) a').click(function(e){
     closeCollapseMenu();
   });
   $('#navbar-collapse .navbar-form').submit(function(e){
