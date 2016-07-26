@@ -1,6 +1,6 @@
 <li class="{% if taxon.has_children? %} dropdown-submenu {% endif %}">
   <a tabindex="0" href data-url="/#categories/{{taxon.id}}/{{taxon.name | downcase}}" {% if taxon.has_children? %} data-submenu data-toggle="dropdown" aria-expanded="false" {% endif %}>{{taxon.name}}</a>
-  
+
   {%if taxon.has_children? %}
     <ul class="dropdown-menu">
       {%for taxon in taxon.children %}

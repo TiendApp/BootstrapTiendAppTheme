@@ -199,11 +199,15 @@ a{
     -webkit-box-shadow: 0px 3px 10px 0px rgba(128,128,128,1);
     -moz-box-shadow: 0px 3px 10px 0px rgba(128,128,128,1);
     box-shadow: 0px 3px 10px 0px rgba(128,128,128,1);
+    position: absolute;
+    top: 65px;
+    width: 95%;
   }
 
   .navbar-header{
-    height: 90px;
+    height: 70px;
   }
+
   /*.navbar button[type="submit"]{
     margin-top: -3px;
   }*/
@@ -317,7 +321,7 @@ i.ng-hide-add, i.ng-hide-remove, i.ng-hide-animate, i.ng-hide-add-active, span.n
 /* Header */
 @media screen and (max-width: 767px) {
   .header-container{
-    margin-top: 78px;
+    margin-top: 70px;
   }
 }
 
