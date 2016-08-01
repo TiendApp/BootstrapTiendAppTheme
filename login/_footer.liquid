@@ -1,7 +1,8 @@
 <div class="form-footer">
-  <div class="pull-left">
-    <a href="#" ng-click="sessionModalController.setState(1)">Crear Cuenta</a>|
-    <a href="#" ng-click="sessionModalController.setState(2)">Recuperar Contraseña</a>
+  <div class="pull-left login-options">
+    <a href="#" ng-click="sessionModalController.setState(0)" ng-cloak ng-hide="sessionModalController.tab == 0">Iniciar Sesión</a>
+    <a href="#" ng-click="sessionModalController.setState(1)" ng-cloak ng-hide="sessionModalController.tab == 1">Crear Cuenta</a>
+    <a href="#" ng-click="sessionModalController.setState(2)" ng-cloak ng-hide="sessionModalController.tab == 2">Recuperar Contraseña</a>
   </div>
 
   <button ng-disabled="session.loading" class="btn btn-primary">

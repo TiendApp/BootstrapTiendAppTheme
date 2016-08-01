@@ -856,6 +856,10 @@ i.ng-hide-add, i.ng-hide-remove, i.ng-hide-animate, i.ng-hide-add-active, span.n
   opacity: 0;
 }
 
+.login-options a{
+  margin-right: 1em;
+}
+
 .modal-backdrop.ng-hide{
   opacity: 0;
   display: none;
