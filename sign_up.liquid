@@ -1,0 +1,47 @@
+<div class="session">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+
+      <form name="signUp" ng-submit="signUp.$valid && session.signUp()" ng-disabled="session.loading" novalidate>
+        <div class="form-body">
+
+            <div class="form-group">
+              <label for="email">
+                Email
+              </label>
+              <input name="email" class="form-control" type="email" ng-model="session.email" ng-disabled="session.loading" required/>
+              <span class="error" ng-hide="signUp.email.$valid">Requerido</span>
+            </div>
+            <div class="form-group">
+              <label for="password">
+                Contraseña
+              </label>
+              <input name="password" class="form-control" type="password" ng-model="session.password" ng-disabled="session.loading" ng-minlength="8" required/>
+              <span class="error" ng-hide="signUp.password.$valid">Mínimo 8 letras</span>
+            </div>
+
+            <div class="form-group">
+              <label for="password_confirmation">
+                Confirmar Contraseña
+              </label>
+              <input name="password_confirmation" class="form-control" type="password" ng-model="session.passwordConfirmation" ng-disabled="session.loading" ng-minlength="8" compare-to="session.password" required/>
+              <span class="error" ng-hide="signUp.password_confirmation.$valid">Debe coincidir con la contraseña</span>
+            </div>
+
+        </div>
+        <div class="form-footer text-center">
+          <button ng-disabled="session.loading" class="btn btn-primary">
+            <i class="fa fa-refresh fa-spin" ng-show="session.loading"></i>
+            Crear Cuenta
+          </button>
+          <br>
+          <hr>
+          <div class="login-options">
+            <a href="/login">Ya tengo cuenta</a>
+            <a href="/password/recover" >Olvidé mi contraseña</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

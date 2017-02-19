@@ -1363,3 +1363,9 @@ hr {
 .progress-indicator>li.next:hover{
   color: #bbb;
 }
+.checkout{
+  padding-top: 2.5em;
+}
+.session{
+  padding-top: 2em;
+}

@@ -1,0 +1,37 @@
+<div class="session">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+
+      <form name="login" ng-submit="login.$valid && session.login()" ng-disabled="session.loading" novalidate>
+        <div class="form-body">
+
+            <div class="form-group">
+              <label for="email">
+                Email
+              </label>
+              <input name="email" class="form-control" type="email" ng-model="session.email" ng-disabled="session.loading" required/>
+            </div>
+            <div class="form-group">
+              <label for="password">
+                Contraseña
+              </label>
+              <input name="password" class="form-control" type="password" ng-model="session.password" ng-disabled="session.loading" ng-minlength="8" required/>
+            </div>
+
+        </div>
+        <div class="form-footer text-center">
+          <button ng-disabled="session.loading" class="btn btn-primary">
+            <i class="fa fa-refresh fa-spin" ng-show="session.loading"></i>
+            Ingresar
+          </button>
+          <br>
+          <hr>
+          <div class="login-options">
+            <a href="/user/spree_user/sign_up">Crear Cuenta</a>
+            <a href="/password/recover" >Olvidé mi contraseña</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
