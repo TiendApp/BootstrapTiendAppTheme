@@ -9,6 +9,14 @@ body{
   min-height: 100vh;
 }
 
+.alert-error
+{
+  color: white !important;
+  background-color: #b15158;
+  border-style: solid;
+  border-color: black;
+}
+
 .no-animate {
    -webkit-transition: none !important;
    transition: none !important;
