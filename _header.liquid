@@ -8,11 +8,11 @@
   }
   .subscription .error{
     color: {{ "home_subscribe_text_color" | customizable : customization.home_subscribe_text_color, preview }};
-    
+
   }
 </style>
 <div class="header-container" ng-show="products.home">
-  {% include 'widgets/carousel' %}  
+  {% include 'widgets/carousel' %}
 </div>
 {% if user.is_logged_in? == false or preview %}
 <div class="subscription animate-fade" ng-show="products.home && {% if preview == false %}!session.userSignedIn() {% endif%}" ng-controller="SubscriptionController as subscription" ng-cloak>
@@ -23,13 +23,13 @@
       </h4>
       <p>
         {{"home_subscribe_text" | customizable : customization.home_subscribe_text, preview }}
-        
+
       </p>
     </div>
     <div class="col-sm-6">
-    <div class="form-submitted primary animate-fade"  ng-show='mailFormState == "submitted"' ng-cloak>    
+    <div class="form-submitted primary animate-fade"  ng-show='mailFormState == "submitted"' ng-cloak>
       <h5>
-        
+
         ¡Muchas gracias!
       </h5>
       <p>
@@ -45,7 +45,7 @@
               Enviando
             </button>
             <button class="btn btn-default primary ng-animate-disabled disabled" type="button" ng-switch-when="submitted">Enviado</button>
-            <button class="btn btn-default primary ng-animate-disabled" type="button" ng-switch-default>Enviar</button>
+            <button class="btn btn-default primary ng-animate-disabled" type="submit" ng-switch-default>Enviar</button>
           </span>
         </div><!-- /input-group -->
 
