@@ -1,0 +1,57 @@
+<div class="errors">
+  {{content_for_errors}}
+  {{flash_messages}}
+</div>
+<br>
+<div class="row checkout-registration">
+  <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+    <div class="panel panel-default ">
+      <div class="panel-body">
+        <div class="main-actions text-center">
+          <h2>¿Deseas registrarte antes de finalizar tu compra?</h2>
+          <br>
+          <small>¡Regístrate para obtener beneficios en tus futuras compras!</small>
+          <br>
+          <br>
+          <button class="btn btn-success" id="register-button">
+            Registrarme
+          </button>
+          <br>
+          ----- o -----
+          <br>
+          <button class="btn btn-default" id="guest-button">
+            Continuar como invitado
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default checkout-registration hidden-soft" id="new-user-content">
+      <div class="panel-body">
+        <h3>Crea tu cuenta</h3>
+        <div>
+          {{content_for_new_user}}
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default checkout-registration hidden-soft" id="guest-user-content">
+      <div class="panel-body">
+        <h3>Ingresa tu email para continuar</h3>
+        <div>
+          {{content_for_guest}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type='text/javascript'>
+  $('.checkout-registration #register-button').click(function(){
+    $('.checkout-registration #guest-user-content').hide();
+    $('.checkout-registration #new-user-content').show();
+  });
+
+  $('.checkout-registration #guest-button').click(function(){
+    $('.checkout-registration #new-user-content').hide();
+    $('.checkout-registration #guest-user-content').show();
+  });
+</script>

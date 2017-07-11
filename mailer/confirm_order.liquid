@@ -1,4 +1,57 @@
 <style>
+  .order_table>tbody>tr>th{
+    text-align: right;
+  }
+  .gray, .gray>td{
+    color: #909090;
+  }
+  .order_table tr td, .order_table tr td p{
+    text-align: right;
+    min-width: 80px;
+  }
+  .order_table>tbody>tr>td{
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+  }
+  .text-center{
+    text-align: center;
+  }
+  .main-caption{
+    background-color: {{"email_main_caption_background_color" | customizable : customization.email_main_caption_background_color, preview }};
+    padding-top: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    text-align: center;
+  }
+  .email-content{
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 250px;
+    padding-left: 30px;
+  }
+  .email-thanks{
+    text-align: center;
+  }
+  .divisor {
+    width: 100%;
+    margin-top: 40px;
+    margin-right: 0px;
+    margin-bottom: 40px;
+    margin-left: 0px;
+    border-bottom: solid 1px #505050;
+  }
+  .email-content h5{
+    margin-bottom: 15px;
+    font-size: 16pt;
+  }
+  .main-caption h1, .main-caption h5, .main-caption p{
+    color: {{"email_main_caption_color" | customizable : customization.email_main_caption_color, preview }};
+    text-align: center;
+
+  }
   .order_table tr:nth-child(even) {
     background-color: {{"email_order_table_background_color_even" | customizable : customization.email_order_table_background_color_even, preview }};
   }
@@ -13,7 +66,7 @@
   }
   .order_table tr:nth-child(odd) td{
     color:{{"email_order_table_text_color_odd" | customizable : customization.email_order_table_text_color_odd, preview }};
-    
+
   }
 
   .order_table td, .order_table tr, .order_table th{
@@ -27,41 +80,252 @@
   .order_table{
     margin: 20px 0px;
   }
-  .email-content-header{
+  .container{
     margin-top: 20px;
   }
 </style>
-<table>
-  <tr>
-    <td>
-      <br/>
-      <h5>
-        Orden {{ order.number }}
-      </h5>
-      <p class="lede email-content-header">
-        {{"email_order_head_text" | customizable_with_variables : customization.email_order_head_text, preview, variables }}
-        
-      </p>
-      <p>
-        {{"email_order_please_check" | customizable_with_variables : customization.email_order_please_check, preview, variables }}
-        
-      </p>
-      
-      <table class="order_table center">
-        {{ order_contents }}
-      </table>
-      {% if order.comment %}
-        <h1>
-          Comentarios:
-        </h1>
-        <p>
-          {{ order.comment}}
-        </p>
-      {%endif%}
-      <p>
-        {{"email_order_bottom_text" | customizable_with_variables : customization.email_order_bottom_text, preview, variables }}
-      </p>
-    </td>
-    <td class="expander"></td>
-  </tr>
-</table>
+<tr>
+  <td class="main-caption">
+    <table class="row">
+      <tbody>
+        <tr>
+          <h1>{{"email_order_head_text" | customizable_with_variables : customization.email_order_head_text, preview, variables }}</h1>
+          <p>
+            {{"email_order_please_check" | customizable_with_variables : customization.email_order_please_check, preview, variables }}
+          </p>
+          <h5 style="margin-bottom:20px;">
+            Pedido {{ order.number }}
+          </h5>
+          <p class='text-center'>
+            <a class="btn btn-success" href="http://{{domain}}.tiendapp.cl/orders/{{order.number}}">
+              Ver Pedido
+            </a>
+          </p>
+        </tr>
+      </tbody>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td class="email-content">
+    <br/>
+    <table align="center" class="container">
+      <tbody>
+        <tr>
+          <td>
+            <table class="row">
+              <tbody>
+                <tr>
+                  <h5>Información del pedido</h5>
+                  <p>Pedido #: {{ order.number }}</p>
+                  <p>Pedido realizado: {{order.completed_at}}</p>
+                  {% if order.payment_state == 'Completed' %}
+                  <p>Estado del pago: Pagado</p>
+                  {% else %}
+                  <p>Estado del pago: No Pagado</p>
+                  {% endif %}
+                  <p>Costo total: {{order.display_total}}</p>
+                  <div class="divisor"></div>
+                </tr>
+              </tbody>
+            </table>
+            <table class="row">
+              <tbody>
+                <tr>
+                  <th >
+                    <table class="columns six">
+                      <tr>
+                        <th>
+                          <h5>Datos de Facturación</h5>
+                          <p>{{order.billing_address.firstname}} {{order.billing_address.lastname}}</p>
+                          <p>{{order.billing_address.address1}}</p>
+                          <p>{{order.billing_address.address2}}</p>
+                          <p>{{order.billing_address.city}}</p>
+                          <p>{{order.billing_address.zipcode}}</p>
+                          <p>{{order.billing_address.state_name}}</p>
+                          <p>{{order.billing_address.company}}</p>
+                          <p>RUT: {{order.billing_address.rut}}</p>
+                          <p>Teléfono: {{order.billing_address.phone}}</p>
+                          <br/>
+                          <p>
+                            <b>Métodos de pago:</b>
+                          </p>
+                          {% if order.valid_payments.size == 0 %}
+                          <b>Sin definir</b>
+                          {% else %}
+                          {% for payment in order.valid_payments %}
+                          {% if payment.payment_method_name != null %}
+                          <p>{{payment.payment_method_name}}</p>
+                          {% else %}
+                          <p>Sin definir</p>
+                          {% endif %}
+                          {% endfor %}
+                          {% endif %}
+                        </th>
+                        <th class="expander"></th>
+                      </tr>
+                    </table>
+                  </th>
+
+                  <th class="">
+                    <table class="columns six">
+                      <tr>
+                        <th>
+                          <h5>Datos del Envío</h5>
+                          <p>{{order.shipping_address.firstname}} {{order.shipping_address.lastname}}</p>
+                          <p>{{order.shipping_address.address1}}</p>
+                          <p>{{order.shipping_address.address2}}</p>
+                          <p>{{order.shipping_address.city}}</p>
+                          <p>{{order.shipping_address.zipcode}}</p>
+                          <p>{{order.shipping_address.state_name}}</p>
+                          <p>{{order.shipping_address.company}}</p>
+                          <p>RUT: {{order.shipping_address.rut}}</p>
+                          <p>Teléfono: {{order.shipping_address.phone}}</p>
+                          <br/>
+                          <p><b>Métodos de envío:</b></p>
+                          {% if order.shipments.size == 0 %}
+                              <b>Sin definir</b>
+                            {% else %}
+                              {% for shipment in order.shipments %}
+                                <p>{{shipment.shipping_name}}</p>
+                              {% endfor %}
+                          {% endif %}
+                        </th>
+                      </tr>
+                    </table>
+                  </th>
+                  <th class="expander"></th>
+                </tr>
+              </tbody>
+            </table>
+            <div class="divisor"></div>
+            <table class="row">
+              <tbody>
+                <tr>
+                  <h5>Detalles del pedido</h5>
+                  <table class="order_table center columns twelve">
+                    <tr>
+                      <th>Producto</th>
+                      <th>Cant.</th>
+                      <th>Total</th>
+                    </tr>
+                    {% for item in order.line_items %}
+                      <tr>
+                        <td>
+                          <p>{{ item.variant.product.name }}</p>
+                          <p class="gray">{{ item.variant.options_text }}</p>
+                          <p class="gray">{{item.variant.sku}}</p>
+                        </td>
+                        <td>
+                          {{item.quantity}}
+                        </td>
+                        <td>{{item.display_amount}}</td>
+                      </tr>
+                    {% endfor %}
+                    <table class="row">
+                      <tbody>
+                        <tr>
+                          <th >
+                            <table class="columns six">
+                              <tbody>
+                                <tr>
+                                  <th></th>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </th>
+                          <th>
+                            <table class="columns six">
+                              <tbody>
+                                <tr>
+                                  <th>
+                                    <table style="width:100%;margin-top:20px;">
+                                      <tr>
+                                        <td></td>
+                                        <td>
+                                          Subtotal:
+                                        </td>
+                                        <td>
+                                          {{ order.display_item_total }}
+                                        </td>
+                                      </tr>
+                                      <tr class="gray">
+                                        <td></td>
+                                        <td>Impuestos:</td>
+                                        <td>{{ order.tax_total }}</td>
+                                      </tr>
+                                      <tr class="gray">
+                                        <td></td>
+                                        <td>Descuentos:</td>
+                                        <td>{{ order.discount_total }}</td>
+                                      </tr>
+                                      {% for shipment in order.shipments %}
+                                      <tr>
+                                        <td></td>
+                                        <td>{{shipment.shipping_method.name}}:</td>
+                                        <td>${{shipment.adjustment_total}}</td>
+                                      </tr>
+                                      {% endfor %}
+                                      {% for adjustment in order.adjustments.eligible %}
+                                      {% if adjustment.is_tax_rate? and adjustment.amount == 0%}
+                                      {% continue %}
+                                      {% endif %}
+                                      <tr>
+                                        <td></td>
+                                        <td>{{adjustment.label}}:</td>
+                                        <td>{{adjustment.display_amount}}</td>
+                                      </tr>
+                                      {% endfor %}
+                                      <tr>
+                                        <td></td>
+                                        <td>
+                                          Total del pedido:
+                                        </td>
+                                        <td>
+                                          <b>
+                                            {{ order.display_total }}
+                                          </b>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </th>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </th>
+                          <th class="expander">
+                          </th>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </table>
+                  {% if order.comment %}
+                  <div class="divisor"></div>
+                  <h1>
+                    Comentarios:
+                  </h1>
+                  <p>
+                    {{ order.comment}}
+                  </p>
+                  {%endif%}
+                  <div class="divisor"></div>
+                </tr>
+              </tbody>
+            </table>
+            <table class="row">
+              <tbody>
+                <tr>
+                  <h4 class="email-thanks">
+                    {{"email_order_bottom_text" | customizable_with_variables : customization.email_order_bottom_text, preview, variables }}
+                  </h4>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </td>
+  <td class="expander"></td>
+</tr>

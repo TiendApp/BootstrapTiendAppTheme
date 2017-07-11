@@ -32,8 +32,8 @@ body{
   margin:0;
   padding:0;
   background-color: {{"email_background_color" | customizable : customization.email_background_color, preview }};
-  
-  
+
+
 
 }
 
@@ -55,6 +55,14 @@ body{
   padding:0;
   width:100% !important;
   line-height: 100% !important;
+}
+
+.btn.btn-success{
+  border-radius: 3px;
+  padding: 5px 20px;
+  color: {{"email_button_color" | customizable : customization.email_button_color, preview}};
+  background-color: {{"email_button_background_color" | customizable : customization.email_button_background_color, preview}};
+  border: solid 1px {{"email_button_color" | customizable : customization.email_button_color, preview}};
 }
 
 img {

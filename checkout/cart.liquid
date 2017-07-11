@@ -35,9 +35,9 @@
     <table id="mini-cart-table">
       <thead>
         <tr ng-hide="cart.noItems()">
-          <th></th>
+          <th class='hidden-xs'></th>
           <th>Item</th>
-          <th>Precio</th>
+          <th class='hidden-xs'>Precio</th>
           <th>Cantidad</th>
           <th></th>
           <th>Total</th>
@@ -52,7 +52,7 @@
         </tr>
 
         <tr ng-repeat="item in cart.itemsInCart" ng-class-odd="'odd'" ng-class-even="'even'" ng-hide="cart.noItems()">
-          <td class="picture">
+          <td class="picture hidden-xs">
             <img ng-src="{[item.variant.images[0].small_url]}"/>
           </td>
           <td class="name">
@@ -62,7 +62,7 @@
               </a>
             </h5>
           </td>
-          <td class="price">
+          <td class="price hidden-xs">
             {[item.variant.price  | currency : '$' : 0 | comma_to_dot]}
           </td>
           <td class="quantity">
@@ -94,7 +94,7 @@
       </div>
     </div>
     <div class="row" ng-hide="cart.noItems()">
-      <div class="col-xs-5 pull-right text-right">
+      <div class="col-xs-12 pull-right text-right">
         <a href="/checkout">
           <div class="btn btn-cart">
             <span>Realizar la Compra</span>

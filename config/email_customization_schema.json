@@ -5,39 +5,39 @@
     "version": "0.1"
   },
   "email_customization" : {
-    "shared": 
+    "shared":
     {
       "label": "Compartido",
-      "setting_groups": 
+      "setting_groups":
       [
         {
           "name": "Header",
           "icon": "newspaper-o",
-          "settings": 
-          [ 
+          "settings":
+          [
             {
               "type": "header",
               "content": "Configuraciones para todos los correos"
-            },  
+            },
             {
               "type": "image",
               "id": "email_header_logo",
               "label": "Logo Encabezado",
               "default": "email_header_logo.png",
               "info": "Imagen para el logo del email."
-            },   
+            },
             {
               "type": "text",
               "id": "email_header_text",
               "label": "Texto Encabezado",
-              "default": "{{store.name}} - Un encabezado de ejemplo",
+              "default": "{{store.name}} - ¡Tu compra ha sido confirmada!",
               "info": "El texto del encabezado de los correos."
-            }, 
+            },
             {
               "type": "color",
               "id": "email_header_background_color",
               "label": "Color del Fondo",
-              "default": "#82bfc4",
+              "default": "#de3a47",
               "info": "Color que tendrá el fondo de tu encabezado."
             },
             {
@@ -51,7 +51,7 @@
               "type": "font",
               "id": "email_header_font",
               "label": "Fuente Encabezado",
-              "default": "Tahoma",
+              "default": "Trebuchet MS",
               "info": "Tipografía que se utilizará en el encabezado en los emails."
             },
             {
@@ -63,7 +63,7 @@
               "max": 32,
               "info": "Tamaño de la tipografía del encabezado."
             }
-            
+
           ]
         },
         {
@@ -74,7 +74,7 @@
             {
               "type": "header",
               "content": "Configuraciones para todos los correos"
-            },  
+            },
             {
               "type": "color",
               "id": "email_background_color",
@@ -93,17 +93,31 @@
               "type": "font",
               "id": "main_email_font",
               "label": "Fuente principal",
-              "default": "Tahoma",
+              "default": "Trebuchet MS",
               "info": "Tipografía que se utilizará por defecto en los emails."
+            },
+            {
+              "type": "color",
+              "id": "email_button_color",
+              "label": "Color texto botón",
+              "default": "#ffffff",
+              "info": "Color que tendrá el texto de los botones en los emails."
+            },
+            {
+              "type": "color",
+              "id": "email_button_background_color",
+              "label": "Color botón",
+              "default": "#38b3da",
+              "info": "Color que tendrán los botones en los emails."
             }
           ]
         }
       ]
     },
-    
+
     "confirm_order": {
       "label": "Email de confirmación de orden",
-      "setting_groups": 
+      "setting_groups":
       [
         {
           "name": "Textos",
@@ -130,6 +144,26 @@
               "label": "Texto final",
               "default": "¡Muchas gracias por tu compra!",
               "info": "Texto final de la orden."
+            }
+          ]
+        },
+        {
+          "name": "Encabezado",
+          "icon": "header",
+          "settings": [
+            {
+              "type": "color",
+              "id": "email_main_caption_background_color",
+              "label": "Color de fondo",
+              "default": "#38b3da",
+              "info": "Color del fondo del encabezado."
+            },
+            {
+              "type": "color",
+              "id": "email_main_caption_color",
+              "label": "Color del texto",
+              "default": "#ffffff",
+              "info": "Color del texto del encabezado."
             }
           ]
         },
@@ -196,12 +230,12 @@
             }
           ]
         }
-         
+
       ]
     },
     "cancel_order": {
       "label": "Email de cancelación de orden",
-      "setting_groups": 
+      "setting_groups":
       [
         {
           "name": "Textos",
@@ -287,12 +321,12 @@
             }
           ]
         }
-         
+
       ]
     },
     "shipped_order": {
       "label": "Email de confirmación de envío",
-      "setting_groups": 
+      "setting_groups":
       [
         {
           "name": "Textos",
@@ -385,10 +419,10 @@
             }
           ]
         }
-        
-         
+
+
       ]
     }
   }
-  
+
 }
