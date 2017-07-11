@@ -1377,3 +1377,7 @@ hr {
 .session{
   padding-top: 2em;
 }
+
+.hidden-soft{
+  display: none;
+}
