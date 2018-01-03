@@ -46,7 +46,7 @@
             <div class="col-sm-2">
               <div class="form-group">
                 {% if product.in_stock? %}
-                  <input type="number" name="quantity" ng-model="product.quantity" value="1"/>
+                  <input type="number" name="quantity" min='1' ng-model="product.quantity" value="1"/>
                 {% else %}
                   <input type="number" name="quantity" min="0" value="0" max="0">
                 {% endif %}
